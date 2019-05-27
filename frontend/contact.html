@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
+<link rel="stylesheet" href="dist/css/bootstrapValidator.css" />
+
+<!-- Google Fonts
+        ============================================= -->
+<link
+	href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300'
+	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
+	rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+<!-- Stylesheets
+        ============================================= -->
+<link rel="stylesheet" href="css/plugin.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+<!-- JavaScripts
+        ============================================= -->
+<script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+<script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
+<!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+<title>Contact | Haulage | Logistics & Transportation</title>
+<!-- Favicon -->
+<link rel="shortcut icon" href="image/favicon.ico" />
+
+<script>
+	function restrictAlphabets(e) {
+		var x = e.which || e.keycode;
+		if ((x >= 48 && x <= 57) || x == 8 || (x >= 35 && x <= 40) || x == 46)
+			return true;
+		else
+			return false;
+	}
+</script>
+</head>
+<body onload="hideTotal()">
+	<div id="preloader">
+		<div id="status">
+
+			<img src="image/logo.png" alt="logo image" />
+
+		</div>
+	</div>
+
+	<!-- MAIN WRAPPER
+        ============================================= -->
+	<div id="main-wrapper" class="clearfix">
+
+		<!-- HEADER
+            ============================================= -->
+		<header id="header" class="clearfix">
+			<div class="site-header">
+				<div class="container">
+					<div class="row">
+						<div class="top-header clearfix">
+							<div class="logo col-md-4">
+								<a href="index.html"> <img src="image/logo.png" alt="logo image" />
+								</a>
+							</div>
+
+							<div class="info col-md-8">
+								<ul>
+									<li><i class="fa fa-clock-o"></i>
+										<p>
+											<span class="heading">Opening Hours</span> <span>07:30AM
+												- 07:30PM</span>
+										</p></li>
+									<li><a href="tel:07314773333"><i class="fa fa-phone"></i>
+											<p>
+												<span class="heading">For Booking</span> <span>(0731)
+													477 3333</span>
+											</p></a></li>
+									<li class="last"><a
+										href="mailto:support@haulagelogistic.com"> <i
+											class="fa fa-envelope"></i>
+											<p>
+												<span class="heading">Email Us</span> <span>support@haulagelogistic.com</span>
+											</p></a></li>
+								</ul>
+							</div>
+
+							<div class="slide-buttons">
+								<button id="slide-buttons"
+									class="slide-button icon icon-navicon"></button>
+							</div>
+						</div>
+
+						<div class="navigation">
+							<div class="main-menu">
+								<ul class="menu">
+									<li><a href="index.html">Home</a></li>
+									<li><a href="about-us.html">About Us</a></li>
+									<li class="has-sub"><a href="services.html">Services</a>
+										<ul>
+											<li><a href="shiftingServices.html">Shifting</a></li>
+											<li><a href="payPerRide.html">Pay Per Ride</a></li>
+											<!--  <li><a href="single-services.html">Air Freight</a></li>
+                                               <li><a href="single-services.html">Cargo</a></li> -->
+											<li><a href="outStation.html">Out Station</a></li>
+											<li class="last"><a href="fabrication.html">Fabrication</a></li>
+
+										</ul></li>
+									<li><a href="blog.html">Blog</a></li>
+									<li><a href="contact.html">Contact</a></li>
+									<li><a href="index.html#services-calculator">Book
+											Now&nbsp;&nbsp;<i class="fa fa-truck"></i>
+									</a></li>
+								</ul>
+
+								<div class="right-section">
+									<div class="quote-link">
+										<a href="index.html#RequestQuote">Request a Quote</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<!-- Menu Mobile
+                ============================================= -->
+			<nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+				<button class="c-menu__close icon icon-close"></button>
+
+				<ul class="slide-menu-items">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about-us.html">About Us</a></li>
+					<li class="has-sub"><a href="services.html">Services</a>
+						<ul>
+							<li><a href="shiftingServices.html">Shifting</a></li>
+
+							<li><a href="payPerRide.html">Pay Per Ride</a></li>
+							<li><a href="outStation.html">Out Station</a></li>
+
+							<li class="last"><a href="fabrication.html">Fabrication</a></li>
+						</ul></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="index.html#services-calculator">Book
+							Now&nbsp;&nbsp;<i class="fa fa-truck"></i>
+					</a></li>
+				</ul>
+
+				<div class="info">
+					<ul>
+						<li>
+							<p>
+								<span class="heading">Opening Hours</span> <span>07:30AM
+												- 07:30PM</span>
+							</p>
+						</li>
+						<li>
+							<p>
+								<a href="tel:07314773333"><span class="heading">For
+										Booking</span> <span>(0731) 477 3333</span></a>
+							</p>
+						</li>
+						<li class="last">
+							<p>
+								<a href="mailto:support@haulagelogistic.com"><span
+									class="heading">Email Us</span> <span>support@haulagelogistic.com</span></a>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<div id="slide-overlay" class="slide-overlay"></div>
+			<!-- Menu Mobile End -->
+		</header>
+		<!-- HEADER END -->
+
+		<!-- PAGE TITLE START
+            ============================================= -->
+		<section class="page-title wrapper clearfix"
+			style="background-image: url(image/about-page-bg.jpg);">
+			<div class="container">
+				<div class="row">
+					<div class="title-wrap wow fadeIn" data-wow-delay="1s">
+						<h1>Contact</h1>
+						<div class="breadcrumbs">
+							<p>
+								You Are Here : <span><a href="index.html">Home</a></span> <span
+									class="arrow"><i class="icon icon-arrow-right"></i></span> <span>Contact</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- PAGE TITLE END -->
+
+		<!-- CONTENT START
+            ============================================= -->
+		<section id="content" class="clearfix">
+			<!-- SINGLE SERVICES START
+                ============================================= -->
+			<div class="contact-page wrapper bg-color">
+				<div class="container">
+					<div class="row">
+						<div class="contact-wrap row">
+							<div class="contact-details col-md-4">
+								<div class="address wow fadeInLeft" data-wow-delay="0.3s">
+									<h4 class="title">Our Office Address</h4>
+									<p>406, Princes Business Skypark</p>
+									<p>Opposite Orbit Mall</p>
+									<p>A.B. Road, Indore</p>
+									<p>MP, India</p>
+									<p>For Booking : + 91 731 477 3333</p>
+									<p>For Inquiry : + 91 731 477 3314</p>
+									<p>Phone : +91 9644503333</p>
+									<p>Email : support@haulagelogistic.com</p>
+								</div>
+								<div class="hours wow fadeInLeft" data-wow-delay="0.6s">
+									<h4 class="title">Our Office Hours</h4>
+									<table style="border: none;">
+										<tr style="border: none;">
+											<td style="border: none;"><p>Monday :</p></td>
+											<td style="border: none;"><p>
+													<span>07:30 AM - 07:30 PM</span>
+												</p></td>
+										</tr>
+										<tr style="border: none;">
+											<td style="border: none;"><p>Tuesday :</p></td>
+											<td style="border: none;"><p>
+													<span>07:30 AM - 07:30 PM</span>
+												</p></td>
+										</tr>
+										<tr style="border: none;">
+											<td style="border: none;"><p>Wednesday :</p></td>
+											<td style="border: none;"><p>
+													<span>07:30 AM - 07:30 PM</span>
+												</p></td>
+										</tr>
+										<tr style="border: none;">
+											<td style="border: none;"><p>Thursday :</p></td>
+											<td style="border: none;"><p>
+													<span>07:30 AM - 07:30 PM</span>
+												</p></td>
+										</tr>
+										<tr style="border: none;">
+											<td style="border: none;"><p>Friday :</p></td>
+											<td style="border: none;"><p>
+													<span>07:30 AM - 07:30 PM</span>
+												</p></td>
+										</tr>
+										<tr style="border: none;">
+											<td style="border: none;"><p>Saturday :</p></td>
+											<td style="border: none;"><p>
+													<span>07:30 AM - 07:30 PM</span>
+												</p></td>
+										</tr>
+										<tr style="border: none;">
+											<td style="border: none;"><p>Sunday :</p></td>
+											<td style="border: none;"><p>
+													<span>07:30 AM - 07:30 PM</span>
+												</p></td>
+										</tr>
+									</table>
+								</div>
+							</div>
+
+							<div id="reload" class="contact-form col-md-8">
+
+								<form id="defaultForm1" class="form-horizontal">
+									<div class=" form-group">
+										<label class="col-md-3 control-label"
+											style="text-align: center;">Name</label>
+										<div class="col-md-9">
+											<input type="text"
+												style="border-style: solid; border-width: thin;"
+												class="form-control" required name="userName" id="userName" />
+										</div>
+									</div>
+
+
+
+									<div class=" form-group">
+										<label class="col-md-3 control-label"
+											style="text-align: center;">Email </label>
+										<div class="col-md-9">
+											<input type="text"
+												style="border-style: solid; border-width: thin;"
+												class="form-control" required name="userEmail"
+												id="userEmail" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label"
+											style="text-align: center;">Mobile No</label>
+										<div class="col-md-9">
+											<input type="text"
+												style="border-style: solid; border-width: thin;"
+												class="form-control" name="telephone" required
+												id="telephone" onkeypress='return restrictAlphabets(event)'
+												maxlength="10" />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label"
+											style="text-align: center;">subject</label>
+										<div class="col-md-9">
+											<input type="text"
+												style="border-style: solid; border-width: thin;"
+												class="form-control input" name="subject" id="subject"
+												required />
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-md-3 control-label"
+											style="text-align: center;">Message</label>
+										<div class="col-md-9">
+											<textarea class="form-control"
+												style="border-style: solid; border-width: thin;"
+												name="message" id="message" required rows="10"
+												data-bv-stringlength data-bv-stringlength-max="100"
+												data-bv-stringlength-message="The bio must be less than 100 characters long"
+												required></textarea>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-md-9 col-md-offset-3">
+											<button type="button" class="btn btn-primary  btn-lg"
+												id="validateBtn" name="signup" value="Sign up"
+												onclick="sendContact();">Send</button>
+										</div>
+									</div>
+								</form>
+
+								<!-- form div  -->
+							</div>
+
+							<!-- ajax loader start -->
+							<div class="modal fade" id="notifyModal" tabindex="-1"
+								role="dialog">
+
+								<div class="modal-dialog modal-dialog-centered" role="document">
+									<div class="modal-content">
+										<!-- Modal Header -->
+										<div class="modal-header" style="background: #0B60A9;">
+											<h4 class="modal-title" style="margin-left: 20%; color: #fff">Haulage
+												Global Logistic Private Limited</h4>
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+										</div>
+										<div class="modal-body">
+											<div id="ajax-loader">
+												<h3>Please wait...</h3>
+												<div class="loader" id="loader"></div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">Close</button>
+												</div>
+											</div>
+											<div id="booking_success" style="display: none;">
+												<!-- <div class="icon-box" id="bookingsuccessicon">
+												<i class="material-icons">&#xE876;</i>
+											</div> -->
+												<center>
+
+													<p>
+														<b>Thank you for submitting enquiry!</b>
+													</p>
+
+													<img data-src="image/bookingsuccess.gif"
+														alt="Profession services" width="300px;" height="250px;" class="lazyload"/>													
+												</center>
+
+												<!-- 												<p class="text-center" style="font-size: large;">Thanks for subscribing.<br> You'll be the first one to know about the release.</p>
+ -->
+												<div class="modal-footer">
+													<button type="button" class="btn btn-info"
+														data-dismiss="modal">Okay</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!--  <div class="map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7921.211728581471!2d107.636263!3d-6.937619!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e86e2acbf353%3A0x68e3efb164a5f3de!2sJl.+Aries%2C+Batununggal%2C+Kota+Bandung%2C+Jawa+Barat+40275%2C+Indonesia!5e0!3m2!1sen!2sid!4v1449826718370" allowfullscreen></iframe>
+                </div> -->
+			<div style="width: 100%">
+				<iframe width="100%" height="600"
+					src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;q=haulage%20global%20logistics+(Haulage%20logistics)&amp;ie=UTF8&amp;t=&amp;z=17&amp;iwloc=B&amp;output=embed"
+					frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+					<a href="https://www.maps.ie/map-my-route/">Draw map route</a>
+				</iframe>
+			</div>
+			<br />
+			<!-- SINGLE SERVICES END -->
+		</section>
+		<!-- CONTENT END -->
+
+		<!-- FOOTER START
+            ============================================= -->
+		<!-- FOOTER START
+            ============================================= -->
+		<footer id="footer" class="wrapper clearfix">
+
+			<div class="container">
+				<div class="row">
+					<div class="footer-wrap row">
+						<!-- WIDGET FOOTER 1 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="short-desc">
+								<div class="logo-footer">
+
+									<img data-src="image/logo.png" alt="logo image" class="lazyload" />
+
+								</div>
+								<p>Haulage Global Logistics Private Limited is a leading
+									service provider which offers a complete gamut of supply chain
+									and logistics services.</p>
+								<p>Haulage solutions extend the complete supply chain from
+									returns management to raw materials.</p>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 1 END -->
+
+						<!-- WIDGET FOOTER 2 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="recent-post">
+								<h4 class="title">Recent Post</h4>
+								<div class="footer-content">
+									<div class="post-item">
+										<a href="best-logistic-company-for-outstation.html">
+											<div class="post-thumb">
+
+												<img data-src="image/out-station-footer.jpg"
+													alt="outstation image" class="lazyload" />
+
+												<!-- <img src="https://res.cloudinary.com/deliant/image/upload/v1552545250/out-station-footer.jpg" alt="" /> -->
+												<div class="overlay"></div>
+											</div>
+										</a>
+										<div class="post-content">
+											<a href="best-logistic-company-for-outstation.html">
+												<h4>Looking For Best Logistics Company to Transfer
+													Goods Outstation?</h4>
+											</a>
+											<p>We are living in 21st century where the world has
+												seen..</p>
+											<div class="meta">
+												<span class="date">11 March 2019</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="post-item">
+										<a href="best-houseShifting-service-in-indore.html">
+											<div class="post-thumb">
+
+												<img data-src="image/house-shifting-footer.jpg"
+													alt="house shifting image" class="lazyload" />
+
+												<!-- <img src="https://res.cloudinary.com/deliant/image/upload/c_scale,h_47,w_50/v1552545150/house-shifting-footer.jpg" alt="" /> -->
+												<div class="overlay"></div>
+											</div>
+										</a>
+										<div class="post-content">
+											<a href="best-houseShifting-service-in-indore.html">
+												<h4>Best House Shifting Services In Indore</h4>
+											</a>
+											<p>Moving to a new city or new house can be
+												fascinating...</p>
+											<div class="meta">
+												<span class="date">21 February 2019</span>
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 2 END -->
+
+						<!-- WIDGET FOOTER 3 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="contact-footer">
+								<h4 class="title">Contact Us</h4>
+								<div class="footer-content">
+									<div class="contact-section">
+										<h4>Our Office Address</h4>
+										<p>406, Princes Business Skypark</p>
+										<p>Opposite Orbit Mall</p>
+										<p>A.B. Road, Indore</p>
+										<p>MP, India</p>
+										<p>For Booking : + 91 731 477 3333</p>
+										<p>For Enquiry : + 91 731 477 3314</p>
+										<p>Phone: +91 9644503333</p>
+										<p>Email : support@haulagelogistic.com</p>
+									</div>
+									<div class="contact-section">
+										<h4>Our Fabrication Address</h4>
+										<p>Haulage Fabrication</p>
+										<p>Palda, Indore</p>
+										<p>MP, India</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 3 END -->
+
+						<!-- WIDGET FOOTER 4 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="buy-now">
+								<h4 class="title">Get in touch</h4>
+								<div class="footer-content">
+									<p>Call now to know about the exciting offers.</p>
+
+									<a href="tel:07314773333" class="button-normal white">Call
+										Now</a>
+								</div>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 4 END -->
+					</div>
+				</div>
+			</div>
+
+			<!-- COPYRIGHT START
+                ============================================= -->
+			<div class="copyright text-center">
+				<div class="container">
+					<div class="social-icon">
+						<ul>
+							<li><a href="https://www.facebook.com/HaulageHaiNa/"
+								target="_blank"><i class="fab fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/HaulagePvt" target="_blank"><i
+									class="fab fa-twitter"></i></a></li>
+							<!-- <li><a href="http://tumblr.com/"><i class="fa fa-tumblr"></i></a></li>
+							<li><a href="http://vimeo.com/"><i class="fa fa-vimeo"></i></a></li> -->
+							<li><a
+								href="https://in.linkedin.com/in/haulage-global-logistic-pvt-ltd-268295174"
+								target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<!-- 	<li><a href="http://dribbble.com/"><i
+									class="fa fa-dribbble"></i></a></li> -->
+							<li><a
+								href="https://www.instagram.com/explore/tags/haulagegloballogisticspvtltd/"
+								target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<!-- <li><a href="http://rssfeed.com/"><i class="fa fa-rss"></i></a></li> -->
+						</ul>
+					</div>
+					<p>
+						Copyright 2019. All Rights Reserved. <b>Haulage Global
+							Logistics private limited</b><br> <a
+							href="https://www.delianttechnologies.com/" target="_blank"
+							style="color: #fff;">Designed with &#x2764; by <b
+							style="color: #b14a57;">Deliant Technologies </b></a>
+					</p>
+				</div>
+			</div>
+			<!-- COPYRIGHT END -->
+
+		</footer>
+		<!-- FOOTER END -->
+		<!-- Back to top button started -->
+		<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+		
+<!-- Footer progress bar start -->
+<div class="footer" id="lowerFooter">
+<marquee style="color:#d92025; font-size:xx-large;" id="disclaimerMarquee"><b>Under the Prevention of Cruelty to Animals (PCA) Act, there are strict rules for the transportation of all kinds of animals. We have strictly prohibited the transportation of animals (Hen, Rabbit, Goat, Cow, etc), Iron rod and similar type of goods.</b></marquee>
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+  </div>  
+  <!-- Back to top button end -->
+	</div>
+	<!-- MAIN WRAPPER END -->
+
+	<!-- Footer Scripts
+        ============================================= -->
+	<!-- External -->
+	<script type="text/javascript" src="js/plugin.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/contactformsend.js"></script>
+	<script type="text/javascript" src="js/formvalidation.js"></script>
+	<script type="text/javascript"
+		src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="dist/js/bootstrapValidator.js"></script>
+	<script src="js/lazysizes.min.js" async></script>
+
+</body>
+
+</html>

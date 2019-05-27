@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head>
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<!-- bootstrap css -->
+<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" media=" " />
+<link rel="stylesheet" href="dist/css/bootstrapValidator.css" media=" " />
+
+<!-- Google Fonts
+        ============================================= -->
+<link
+	href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300'
+	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
+	rel='stylesheet' type='text/css'>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" 
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<!-- <script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>  -->
+
+<link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
+<!-- Stylesheets
+        ============================================= -->
+<link rel="stylesheet" href="css/plugin.css" type="text/css" media=" " />
+<link rel="stylesheet" href="css/style.css" type="text/css" media=" " />
+<link rel="stylesheet" href="css/responsive.css" type="text/css" media=" " />
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+<!-- JavaScripts
+        ============================================= -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+
+<!-- script to disable characters in text box -->
+<script>
+    //var base_url_api = 'http://haulagelogistics.co.in/otp/';
+    var base_url_api = "http://localhost/anjaliguru/otp_module/"; // Localhost
+	function restrictAlphabets(e) {
+		var x = e.which || e.keycode;
+		if ((x >= 48 && x <= 57) || x == 8 || (x >= 35 && x <= 40) || x == 46)
+			return true;
+		else
+			return false;
+	}
+</script>
+<script>
+	$(window).scroll(function() {		  
+		var isshown = sessionStorage.getItem('isshown');
+		if ($(document).scrollTop() > 200 && isshown == null) {
+			try {
+				sessionStorage.setItem('isshown', 1);
+					$('#passengerModal').modal({
+					backdrop : 'static',
+					keyboard : false
+
+				});
+				$('#passengerModal').modal('show');
+			} catch (err) {
+			}
+		}
+	});
+	
+/*	function get_encrypt($string){
+    	return CryptoJS.AES.encrypt($string, 'Haulage');
+	}
+	function getdecrypt($string){
+		var decrypted = CryptoJS.AES.decrypt(encrypted, 'Haulage');
+		return decrypted.toString(CryptoJS.enc.Utf8);
+	}*/
+</script>
+<!-- Google maps API -->
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+
+<title>Haulage | Best Logistics & Transportation | Indore</title>
+<!-- Favicon -->
+<link rel="shortcut icon" href="image/favicon.ico" />
+</head>
+
+<body onload="hideTotal()" >
+	<div id="preloader">
+		<div id="status">
+		
+				<img src="image/logo.png" alt="logo image" />
+				
+			
+		</div>
+	</div>
+  <!-- Modal for passenger segment notification -->
+  <div class="modal fade" id="passengerModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header" style="height:50px;">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title" style="color: #124892;text-align:center;">Haulage Passenger</h3>
+          <!-- <h5 class="modal-title"> Haulage in coming to passenger transportation services as well!</h5> -->
+        </div>
+        <div class="modal-body">
+ <!--<div style="color: #0268b4;font-family: 'Lato', sans-serif; line-height: 1.6;"> -->
+       <div class="carousel-caption" style="position: absolute;background: transparent !important;top: 0;">
+          <h4 style="color: #D92025">Crackerjack services with Adept staff!</h4>
+        </div> 
+      
+							<img data-src="image/passenger3.jpg" alt="passenger service" class="lazyload"/>
+							
+						
+
+			
+        <div style="color: #0268b4;font-family: 'Lato', sans-serif; line-height: 1.6;">
+        <div class="comingsoonmarquee wow zoomIn infinite">
+<h3 style="color: #D92025;text-align: center;" >Coming soon...</h3>
+</div>
+</div>
+     
+<!-- </div> -->
+ <h4 style="margin-bottom: 0px;">Drop your number for early access to the services..</h4>
+       <!--   <form style="color:#000;" id="passenger" class="form-horizontal"  >
+
+            <div class="col-md-6">
+              <div class="form-group">
+
+                <input type="numeric" class="form-control" onkeypress='return restrictAlphabets(event)' maxlength="10" name="telephone" id="telephone" placeholder="Enter Cell Number" required /> </div>
+            </div>
+
+
+
+          </form>-->
+        </div>
+	 <div class="modal-footer">
+	     <div class="row">
+            <div class="col-md-8">
+	<form style="color:#000;" id="passenger" class="form-horizontal"  >
+
+              <div class="form-group">
+                <input type="numeric" class="form-control" onkeypress='return restrictAlphabets(event)' maxlength="10" name="telephone" id="telephone" placeholder="Enter Cell Number" required /> </div>
+           
+
+
+          </form> 
+          
+          </div>
+<div class="col-md-4">
+       	<button type="submit" class="btn btn-primary" onclick="passengerNotify();" id="btnContactUs">
+            Notify me</button> 
+          <button type="button" class="btn btn-default pull-right modal-close-btn" data-dismiss="modal">Close</button>
+ 
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+	<!-- MAIN WRAPPER
+        ============================================= -->
+	<div id="main-wrapper" class="clearfix">
+
+		<!-- HEADER
+            ============================================= -->
+		<header id="header" class="clearfix">
+			<div class="site-header">
+				<div class="container">
+					<div class="row">
+						<div class="top-header clearfix">
+							<div class="logo col-md-4">
+								<a href="index.html"> 
+                                      <img src="image/logo.png" alt="logo image" />
+										
+								</a>
+							</div>
+
+							<div class="info col-md-8">
+								<ul>
+									<li><i class="fa fa-clock-o"></i>
+										<p>
+											<span class="heading">Opening Hours</span> <span>07:30AM
+												- 07:30PM</span>
+										</p></li>
+									<li><a href="tel:07314773333"><i class="fa fa-phone"></i>
+											<p>
+												<span class="heading">For booking </span> <span>(0731) 477
+													3333</span>
+											</p></a></li>
+									<li class="last"><a
+										href="mailto:support@haulagelogistic.com"> <i
+											class="fa fa-envelope"></i>
+											<p>
+												<span class="heading">Email Us</span> <span>support@haulagelogistic.com</span>
+											</p></a></li>
+								</ul>
+							</div>
+
+							<div class="slide-buttons">
+								<button id="slide-buttons"
+									class="slide-button icon icon-navicon"></button>
+							</div>
+						</div>
+
+						<div class="navigation">
+							<div class="main-menu">
+								<ul class="menu">
+									<li><a href="index.html">Home</a></li>
+									<li><a href="about-us.html">About Us</a></li>
+									<li class="has-sub"><a href="services.html">Services</a>
+										<ul>
+											<li><a href="shiftingServices.html">Shifting</a></li>
+											<!-- <li><a href="single-services.html">Ocean Netwok</a></li>
+                                               <li><a href="single-services.html">Air Freight</a></li> -->
+											<li><a href="payPerRide.html">Pay Per Ride</a></li>
+											<li><a href="outStation.html">Out Station</a></li>
+											<li class="last"><a href="fabrication.html">Fabrication</a></li>
+										</ul></li>
+									<li><a href="blog.html">Blog</a></li>
+									<li><a href="contact.html">Contact</a></li>
+									<li><a href="#services-calculator">Book
+											Now&nbsp;&nbsp;<i class="fa fa-truck"></i>
+									</a></li>
+								</ul>
+
+								<div class="right-section">
+									<!-- <div class="search">
+										<i class="fa fa-search"></i>
+									</div> -->
+									<div class="quote-link">
+										<a href="index.html#RequestQuote">Request a Quote</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Menu Mobile
+                ============================================= -->
+			<nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+				<button class="c-menu__close icon icon-close"></button>
+
+				<ul class="slide-menu-items">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about-us.html">About Us</a></li>
+					<li class="has-sub"><a href="services.html">Services</a>
+						<ul>
+							<li><a href="shiftingServices.html">Shifting </a></li>
+
+							<li><a href="payPerRide.html">Pay Per Ride</a></li>
+							<li><a href="outStation.html">Out Station</a></li>
+							<li><a href="fabrication.html">Fabrication</a></li>
+						</ul></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="#services-calculator">Book Now&nbsp;&nbsp;<i
+							class="fa fa-truck"></i></a></li>
+				</ul>
+
+				<div class="info">
+					<ul>
+						<li>
+							<p>
+								<span class="heading">Opening Hours</span> <span>07:30AM
+												- 07:30PM</span>
+							</p>
+						</li>
+						<li>
+							<p>
+								<a href="tel:07314773333"><span class="heading">For Booking</span> <span>(0731) 477 3333</span></a>
+							</p>
+						</li>
+						<li class="last">
+							<p>
+								<a href="mailto:support@haulagelogistic.com"><span
+									class="heading">Email Us</span> <span>support@haulagelogistic.com</span></a>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<div id="slide-overlay" class="slide-overlay"></div>
+			<!-- Menu Mobile End -->
+			<!-- <h1 style="color: white; font-size: 4em; padding-top: 20px;" align="center">HAULAGE GLOBAL LOGISTICS PRIVATE LIMITED</h1> -->
+		</header>
+		<!-- HEADER END -->
+
+		<!-- SLIDER START
+            ============================================= -->
+		<section id="slider" class="home-slider clearfix">
+			<div class="slider-wrapper">
+				<div class="flexslider clearfix">
+					<ul class="slides">
+					<li class="slide-item clearfix"
+							style="background-image: url(image/slider-1.jpg);">
+							<div class="flex-content">
+								<div class="container">
+									<div class="row">
+										<div class="caption-wrap">
+											<div class="caption wow zoomIn" data-wow-duration="1s" data-wow-delay="0.5s">
+												<h1>HAULAGE GLOBAL LOGISTICS PRIVATE LIMITED</h1>
+											</div>
+											<div class="caption wow fadeIn">
+												<p><b>Ensuring safe and high-quality transportation expertise to customers. 
+												Our team members are fully qualified to provide best logistics services with huge network of the transportation system which delivers the good on time to their exact location.</b></p>
+											</div>
+											<div class="caption wow fadeInUp">
+												<a href="tel:07314773333" class="button-normal">Call Now</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					
+						<li class="slide-item clearfix"
+							style="background-image: url(image/slider-2.jpg);">
+							<div class="flex-content">
+								<div class="container">
+									<div class="row">
+										<div class="caption-wrap">
+											<div class="caption  wow zoomIn" data-wow-duration="1s" data-wow-delay="0.5s">
+												<h1>FAST DELIVERY</h1>
+											</div>
+											<div class="caption wow fadeIn">
+												<p><b>We use the most appropriate form of transport to
+													reduce the risks of your goods and materials. Team Haulage
+													offer their experience and expertise in the best possible
+													way to serve its customers better.</b></p>
+											</div>
+											<div class="caption wow fadeInUp">
+												<a href="tel:07314773333" class="button-normal">Call Now</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+
+						<li class="slide-item clearfix"
+							style="background-image: url(image/slider-3.jpg);">
+							<div class="flex-content">
+								<div class="container">
+									<div class="row">
+										<div class="caption-wrap">
+											<div class="caption  wow zoomIn" data-wow-duration="1s" data-wow-delay="0.5s">
+												<h1>SAFE & SECURE</h1>
+											</div>
+											<div class="caption wow fadeIn">
+												<p><b>The first interaction between you and us is with the
+													delivery. You will be astonished to know that our fast
+													track services will deliver your products on the
+													destination in a very short period of time.</b></p>
+											</div>
+											<div class="caption wow fadeInUp">
+												<a href="tel:07314773333" class="button-normal">Call Now</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<!-- SLIDER END -->
+
+		<!-- CONTENT START
+            ============================================= -->
+		<section id="content" class="clearfix">
+
+			<!-- SERVICES START
+                ============================================= -->
+			<div class="services with-bg">
+				<div class="container">
+					<div class="row">
+
+						<!-- Service Quote -->
+						<div class="email-quote clearfix" id="RequestQuote">
+
+							<h4>Request a Quote</h4>
+							<form name="myForm" id="quotationform">
+								<input class="col-md-6" style="height: 39px;" type="text"
+									name="userEmail" id="userEmail" required
+									placeholder="Your Email"  value="">
+								<div class="category_filter col-md-6">
+									<select name="content" id="content1">
+										<option value="null">Select Services</option>
+										<option value="Shifting">Shifting</option>
+										<!-- <option>Ocean Network</option>
+                                            <option>Air Freight</option> -->
+										<option value="Pay Per Ride">Pay Per Ride</option>
+										<option value="Out Station">Out Station</option>
+										<option value="Fabrication">Fabrication</option>
+									</select>
+									<button type="button" onClick="sendContact();"
+									
+										class="button-normal">
+										<span>send now</span>
+									</button>
+								</div>
+							</form>
+							<span id="emailMsg" style="color: white;"></span>
+							<div id="mail-status" style="color: white;"></div>
+						</div>
+						<!-- Service Quote -->
+						<!-- ajax loader start -->
+						<div class="modal fade" id="notifyModal">
+
+							<div class="modal-dialog modal-dialog-centered">
+								<div class="modal-content">
+									<!-- Modal Header -->
+									<div class="modal-header" style="background: #0B60A9;">
+										<h5 class="modal-title" style="margin-left: 20%; color: #fff">
+											Haulage Global Logistic Private Limited
+											</h5>
+											<button type="button" class="close modal-close-btn" data-dismiss="modal">&times;</button>
+									</div>
+									<div class="modal-body " class="center">
+										<div id="ajax-loader1" align="center">
+											<h3>Please wait...</h3>
+											<img data-src="image/loading-image-1.gif" alt="loading image" class="lazyload"/>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-danger"
+													data-dismiss="modal">Close</button>
+											</div>
+										</div>
+										<div id="booking_success1" class="center" style="display: none;">
+												<p>
+													<b>Thank you for submitting enquiry!</b>
+												</p>
+											<img data-src="image/bookingsuccess.gif" alt="booking success" class="lazyload"/>
+											<div class="modal-footer">
+												
+												<button type="button" class="btn btn-info"
+													data-dismiss="modal">Okay</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+						<!-- end ajax loader -->
+
+
+
+					</div>
+				</div>
+			</div>
+
+			<div class="section-title text-center wow fadeIn"
+				style="margin-top: 10px">
+				<h2>Our Services</h2>
+			</div>
+
+			<section id="content" class="clearfix">
+				<!-- SERVICES START
+                ============================================= -->
+				<div class="services-page wrapper bg-color">
+					<div class="container">
+						<div class="row">
+							<div class="services-wrap row">
+								<div class="item col-md-6 wow fadeInUp" style="">
+									<div class="services-content">
+										<div class="services-thumb">
+											<a href="shiftingServices.html">  
+													<img
+													data-src="image/house-shifting.png"
+													style="height: 274px; width: 100%" alt=" houseShifting" class="lazyload" /> 
+													
+												
+
+												<div class="overlay"></div>
+											</a>
+										</div>
+										<div class="services-text">
+											<h3 class="title">Shifting</h3>
+											<p>Whether you live in the farthest suburb or in the
+												heart of downtown, we are always ready to provide hassle
+												free shifting.</p>
+											<a href="shiftingServices.html"
+												class="button-normal with-icon"> Read More <i
+												class="icon icon-arrow-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="item col-md-6 wow fadeInUp">
+									<div class="services-content">
+										<div class="services-thumb">
+											<a href="payPerRide.html">  
+													<img
+													data-src="image/pay-per-ride.png"
+													style="height: 274px; width: 100%" alt="payperride" class="lazyload"/> 
+													
+												
+												<div class="overlay"></div>
+											</a>
+										</div>
+										<div class="services-text">
+											<h3 class="title">Pay Per Ride</h3>
+											<p>Haulage provides Pay-Per-Ride service in a best budget
+												friendly way starting in just &nbsp; ₹ 151.</p>
+											<a href="payPerRide.html" class="button-normal with-icon">
+												Read More <i class="icon icon-arrow-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="item col-md-6 wow fadeInUp">
+									<div class="services-content">
+										<div class="services-thumb">
+											<a href="outStation.html"> 
+											
+						                      
+													<img data-src="image/outstation-2.jpg" style="height: 274px; width: 100%" alt="outstation" class="lazyload"/>
+												
+												<div class="overlay"></div>
+											</a>
+										</div>
+										<div class="services-text">
+											<h3 class="title">Out Station</h3>
+											<p>If you are looking for quick and innoxious delivery
+												service, Haulage will be your right choice.</p>
+											<a href="outStation.html" class="button-normal with-icon">
+												Read More <i class="icon icon-arrow-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+
+								<div class="item col-md-6 wow fadeInUp">
+									<div class="services-content">
+										<div class="services-thumb">
+											<a href="fabrication.html"> 
+													<img data-src="image/fabrication.jpg" style="height: 274px; width: 100%" alt="fabrication image" class="lazyload"/>
+													
+												<div class="overlay"></div>
+											</a>
+										</div>
+										<div class="services-text">
+											<h3 class="title">Fabrication</h3>
+											<p>Haulage’s fabrication business will always be on a
+												mission to Improve customer's satisfaction.</p>
+											<a href="fabrication.html" class="button-normal with-icon">
+												Read More <i class="icon icon-arrow-right"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+
+						</div>
+					</div>
+				</div>
+				<!-- SERVICES END -->
+			</section>
+
+
+
+
+			<!-- SERVICES END -->
+
+			<!-- FEATURES START
+                ============================================= -->
+			<div class="features wrapper">
+				<div class="container">
+					<div class="row">
+						<div class="section-title text-center wow bounceInDown">
+							<h2>Why Choose Us</h2>
+						</div>
+
+						<div class="features-wrap row">
+
+							<div class="col-md-4">
+								<div class="features-item wow fadeInUp">
+									<div class="icon-wrap">
+										<i class="fas fa-shipping-fast"></i>
+									</div>
+									<div class="text">
+										<h4>On-Time Delivery</h4>
+										<p>Being on time, every time, this is what we believe.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="features-item wow fadeInUp">
+									<div class="icon-wrap">
+										<i class="fas fa-user-tie"></i>
+									</div>
+									<div class="text">
+										<h4>Professional Staff</h4>
+										<p>Haulage believes, professionalism is key.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="features-item wow fadeInUp">
+									<div class="icon-wrap">
+										<i class="fas fa-hand-holding-usd"></i>
+									</div>
+									<div class="text">
+										<h4>Pocket-Friendly</h4>
+										<p>Haulage is leading service provider that fits your
+											budget.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="features-item wow fadeInUp">
+									<div class="icon-wrap">
+										<i class="fas fa-people-carry"></i>
+									</div>
+									<div class="text">
+										<h4>Helper On-Demand</h4>
+										<p>Haulage makes helpers available as per your need.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="features-item wow fadeInUp">
+									<div class="icon-wrap">
+										<i class="fas fa-shield-alt"></i>
+									</div>
+									<div class="text">
+										<h4>Safe & Secure</h4>
+										<p>Safe & Secure loadings with professional drivers.</p>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-4">
+								<div class="features-item wow fadeInUp">
+									<div class="icon-wrap">
+										<i class="far fa-grin-hearts"></i>
+									</div>
+									<div class="text">
+										<h4>Customer Centric</h4>
+										<p>Haulage always insures a positive customer experience.</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- FEATURES END -->
+
+			<!-- BOOK HAULAGE START
+                ============================================= -->
+			<div class="services-calculator bg-color" id="services-calculator">
+				<div class="container">
+					<div class="row">
+						<div class="services-calculator-wrap row">
+							<div class="intro-section col-md-6">
+								<!-- <div class =" animated wow zoomIn"> -->
+								<h3 class="title">Book Haulage</h3>
+								<p>Customize our services to fit your needs. For booking,
+									select a desired service level and provide the details.</p>
+								<!-- </div> -->
+								<!-- 	<div class="image animated wow bounceInLeft"> -->
+								<picture onmouseover="hover(this);" onmouseout="unhover(this);">
+							
+								   <img
+									data-src="image/tata-ace-blue-logo.png"
+									class="lazyload wow fadeInLeft" id="tataAcePng"  style="margin-top: 10%;" alt="tata-ace image"/>
+									</picture>
+
+							</div>
+
+							<div class="form-group form-section col-md-6">
+								<form id="calculationform" onsubmit="return false;"
+									style="height: 680px;" class="wow fadeInRight">
+									<p class="intro">* Please fill all inquiry to get your
+										total price</p>
+									<fieldset>
+										<div id="servicetype" class="servicetype">
+											<div class="row">
+												<div class="col-lg-4">
+													<label style="color: #fff;">Services</label>
+												</div>
+												<div class="col-lg-8">
+													<select class="form-control input-lg" id="services_type"
+														name='services_type' onchange="showSubMenu()" required>
+														<option value="">Select Services</option>
+														<!-- <option value="HouseShifting">House shifting</option> -->
+														<option value="Pay-per-ride">Pay-per-ride</option>
+														<option value="Outstation">Out Station</option>
+														<option value="Fabrication">Fabrication</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div id="subtype" class="subtype">
+											<div class="row">
+												<div class="col-lg-4">
+													<label style="color: #fff;">Category </label>
+												</div>
+												<div class="col-lg-8">
+													<select class="form-control input-lg" id="goods_type"
+														name='goods_type' onchange="calculateTotal()" required>
+														<option value="">--Select Service First--</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div id="distance" class="distance" style="display: none;">
+											<div class="row">
+												<div class="col-lg-4">
+													<label style="color: #fff;">Pickup</label>
+												</div>
+												<div class="col-lg-7" id="sourcediv">
+													<input type="text" onfocusout="calculateTotal()"
+														id="txtSource" placeholder="Enter pickup location"
+														class="form-control input-lg" required />
+												</div>
+												<div class="col-lg-1">							
+													<i class="fas fa-map-marker-alt fa-2x" style="color: #fff;" onclick="getLocation('txtSource')"></i>
+												</div>
+											</div>
+											<div class="row">
+												<div class="col-lg-4">
+													<label style="color: #fff;">Drop</label>
+												</div>
+												<div class="col-lg-7" id="destinationdiv">
+													<input type="text" onfocusout="calculateTotal()"
+														id="txtDestination" placeholder="Enter drop location"
+														class="form-control input-lg" required />
+												</div>
+												<div class="col-lg-1">							
+													<i class="fas fa-map-marker-alt fa-2x" style="color: #fff;" onclick="getLocation('txtDestination')"></i>
+												</div>
+											</div>
+											<div class="row" id="distancediv" style="display: none;">
+												<div class="col-lg-4">
+													<label style="color: #fff;">Distance (in KMs)</label>
+												</div>
+												<div class="col-lg-8" id="dvDistance">
+													<input type="text" id="txtDistance" class="form-control input-lg"
+														disabled="disabled" />
+												</div>
+											</div>
+										</div>
+										<div id="services" style="display: none;">
+
+											<div class="row">
+												<div class="col-xs-4" style="margin-top: 1%;">
+													<label style="color: #fff;">Helper</label>
+												</div>
+												<div class="col-xs-2" style="margin-top: 1%;">
+													<label class="checkbox-inline">
+													<input id="toggle-trigger" type="checkbox" data-toggle="toggle" data-width="80" data-on="YES&nbsp;&nbsp;<i class='fas fa-user-alt'></i>" data-off="NO    &nbsp;&nbsp;<i class='fas fa-user-alt-slash'></i>" data-style="ios" onchange="toggleClick()" style="cursor: pointer;" onclick="void(0)"> 
+													</label>
+												</div>	
+											</div>
+										</div>
+										<div id="helperDetails" style="display: none; margin-top: 2%">
+
+											<div class="row">
+												<div class="col-xs-4">
+													<label style="color: #fff;">LOAD / UNLOAD</label>
+												</div>
+												<div class="col-xs-2">
+												<label style="color: #fff;">L</label>
+												</div>
+												<div class="col-xs-2" style="text-align: left;">
+													<input id="loading" type="checkbox" class="form-control" style="text-align: left;" onchange="changeCount()">
+												</div>
+												<div class="col-xs-2" style="padding-left: 0px;padding-right: 0px;">
+												<label style="color: #fff;">U/L</label>
+												</div>
+												<div class="col-xs-2" style="text-align: left;">
+													<input id="unloading" type="checkbox" class="form-control" style="text-align: left;" onchange="changeCount()"> 
+												</div>
+											</div>
+										</div>
+										<div id="helperCount" style="display: none;">
+										<div class="row">
+										<div class="col-xs-4">
+												<label style="color: #fff;">No. of Helper</label>
+												</div>
+													<div class="helperQuantity col-xs-8 float-left">
+														<button type="button"
+															class="btn btn-default btn-lg minus-btn"
+															onclick="removeHelper()">
+															
+															<img
+																data-src="image/minus.svg"
+																alt="minus svg" class="lazyload"/>
+														</button><!-- &nbsp;&nbsp;&nbsp;
+														<i class='fas fa-user-alt' style="color: #fff"></i>&nbsp; -->
+														<label id="helper" class="helper">0</label>
+														<button type="button"
+															class="btn btn-default btn-lg plus-btn"
+															onclick="addHelper()">
+															
+															
+																<img data-src="image/plus-1.svg" alt="plus svg" class="lazyload"/>
+														</button>
+													</div>
+												</div>
+											</div>
+											<div id="tnc" style="display: none;">
+										<p style="color: #fff;">I accept the <a href="TermsConditions.html" target="_blank" style="color: #fff; text-decoration: underline;">Terms and Conditions</a>
+										<input style="width: 50%;" type="checkbox" id="field_terms" onchange="calculateTotal()" required name="terms"></p>
+										</div>
+										<div class="form-group row" align="center">
+											<button type="submit" id="totalPrice"
+												class="btn btn-info btn-lg text-center"
+												onclick="calculateTotal()">Calculate fare ?</button>
+												<p class="intro">* This will be the estimated fare. <br>Actual fare may slightly vary.</p>
+											<!-- Button to Open the Modal -->
+											<button type="button"
+												class="open-AddBookDialog btn btn-success btn-lg text-center"
+												id="modalOpenButton" data-toggle="modal"
+												data-target="#myModal"  data-backdrop="static" data-keyboard="false" onclick="calculateTotal()"
+												style="display: none; margin-top: 2%; margin-top: 2%;">
+												Book Now</button>
+										</div>
+									</fieldset>
+								</form>
+							</div>
+
+							<!-- ================== Start booking Modal =================  -->
+							<div class="modal fade" id="myModal">
+
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<!-- Modal Header -->
+										<div class="modal-header">
+											<h4 class="modal-title" style="margin-left: 35%;">Haulage
+												hai na!!</h4>
+											<button type="button" class="close  modal-close-btn" data-dismiss="modal">&times;</button>
+
+										</div>
+
+										<!-- Modal body -->
+										<div class="modal-body">
+											<div class="modal-display" id="ajax-loader" style="display: none;">
+												<h3>Please wait...</h3>
+												<img data-src="image/loading-image-1.gif" alt="loading image" class="lazyload"/>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-danger  modal-close-btn"
+														data-dismiss="modal">Close</button>
+												</div>
+											</div>
+											<div class="modal-display" id="booking_success" style="display: none;">
+											
+													<img data-src="image/bookingsuccess.gif" alt="bookinsucess image" class="lazyload"/>
+													
+													
+												<p class="text-center" style="font-size: large;">Haulage
+													booked successfully! We will contact you soon.</p>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-danger"
+														data-dismiss="modal">Okay</button>
+												</div>
+											</div>
+											<div class="modal-display" id="booking_error" style="display: none;">
+												<div class="icon-box" id="bookingerroricon">
+													<i class="material-icons">&#xE5CD;</i>
+												</div>
+												<br>
+												<p class="text-center"
+													style="color: #f15e5e; font-size: medium;">Oopss!!
+													Error occurred while booking Haulage!</p>
+												<br> <br>
+												<p class="text-center" class="caption wow fadeIn"
+													style="font-size: large;">
+													Don't worry!! We got you covered. <b> Call us instead!
+													</b>
+												</p>
+
+											 
+													<img
+													data-src="image/happystate.gif"
+													class="center" alt="happy state" width="250px;" height="250px;" class="lazyload"/> 
+												
+
+												<a href="tel:07314773333" class="btn btn-info" role="button"
+												style="margin-left: 30%;">Call Now - 0731 - 4773333</a>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-danger  modal-close-btn"
+														data-dismiss="modal">Close</button>
+												</div>
+											</div>
+											<form class="modal-display" id="booking_form" onsubmit="return false;">
+												<div class="form-group">
+													<!-- <label for="service">Service:</label> -->
+													<input type="text" class="form-control" id="service"
+														placeholder="Enter service" name="Service"
+														disabled="disabled" style="display: none;">
+												</div>
+												<div class="form-group">
+													<!-- <label for="goods">Type:</label> -->
+													<input type="text" class="form-control" id="goodsType"
+														placeholder="Enter service" name="Category"
+														disabled="disabled" style="display: none;">
+												</div>
+												<div class="form-group">
+													<label for="name">Name:</label> <input type="text"
+														class="form-control" id="name"
+														placeholder="Enter your name" name="Name" required
+														maxlength="50">
+												</div>
+												<div class="form-group">
+													<label for="phone">Phone Number:</label> <input type="text"
+														class="form-control" id="phone"
+														placeholder="Enter contact number" name="Phone_No"
+														pattern="[6-9]{1}[0-9]{9}" maxlength="10"
+														onkeypress='return restrictAlphabets(event)' required>
+												</div>
+												<div class="form-group">
+													<!-- <label for="pickup">Pickup location:</label>  -->
+													<input type="text" class="form-control" id="pickup"
+														
+														name="Pickup Location"  
+														style="display: none;">
+												</div>
+												<div class="form-group">
+													<!-- <label for="drop">Drop location:</label>  -->
+													<input type="text" class="form-control" id="drop"
+														
+														name="Drop Location"  
+														style="display: none;">
+												</div>
+												<div class="form-group row">
+													<div class="col-lg-6">
+														<!-- 	<label for="helper">Helper required:</label> -->
+													</div>
+													<div class="col-lg-6">
+														<input type="text" class="form-control" id="helper"
+															name="Helper" style="display: none;">
+													</div>
+												</div>
+												<!-- <div class="form-group">
+													<input id="estimatedfare" class="form-control"
+														type="text" name="estimatedfare" style="display: none;">
+												</div> -->
+												<div class="form-group">
+													<input id="estimatedDistance" class="form-control"
+														type="text" name="Estimated Distance"
+														style="display: none;">
+												</div>
+												<!-- <div class="form-group">
+													<label for="time">Booking time:</label> <input
+														class="form-control" type="datetime-local"
+														name="bookingtime">
+												</div> -->
+												<div class="form-group">
+													<label for="date">Booking date:</label>
+													<!-- <h4>Select booking date</h4> -->
+													<input type='text' class="form-control"
+														id='datetimepicker1' name="Booking_Date"
+														placeholder="Select booking date" required
+														onfocusin="validateDate();" />
+
+												</div>
+												<div class="form-group">
+													<label for="time">Booking time:</label>
+													<!-- <h4>Select booking time</h4> -->
+
+													<input type='text' class="form-control"
+														id='datetimepicker2' name="Booking_Time"
+														placeholder="Select booking time" required
+														onfocusin="validateTime();" />
+
+
+												</div>
+												
+												<div class="modal-footer">
+													<button type="button" id="submit_booking"
+														class="btn btn-primary" onclick="getOtp()"
+														name="submit_booking">Submit</button>
+													<button type="button" class="btn btn-danger  modal-close-btn"
+														data-dismiss="modal" id="close_modal" name="close_modal">Close</button>
+												</div>
+											</form>
+											<form class="modal-display resend_otp_form" id="otp_form" onsubmit="return false;" style="display: none;">
+												<div class="form-group">
+													<label for="mobile_no">Phone Number:</label> 
+													<div class="row">
+														<div class="col-md-8 col-sm-8 col-xs-8 ">
+															<input type="text" class="form-control" id="mobile_no" placeholder="Enter contact number" name="mobile_no" pattern="[6-9]{1}[0-9]{9}" maxlength="10"
+														onkeypress='return restrictAlphabets(event)' required>	
+														<small class="help-block" id="mobile_no_error_msg"></small>
+														</div>
+														<div class="col-md-4 col-sm-4 col-xs-4">
+														    <button type="button" id="submit_resend" class="btn btn-primary" onclick="resend_otp()" name="submit_resend">Resend</button>
+															<!--<a href="javascript:void(0);" id="submit_resend" onclick="resend_otp()">Resend</a>-->
+														</div>
+													</div>
+													
+												</div>
+												<div class="form-group" >
+													<label for="otp">OTP:</label>   
+													<div class="row">
+													    <div class="col-md-8 col-sm-8 col-xs-8">
+													        <input type="text" class="form-control" id="otp" placeholder="Enter your OTP" name="otp" required maxlength="4" onkeypress='return restrictAlphabets(event)'>
+													        <small class="help-block" id="otp_error_msg"></small>
+													    </div>
+													</div>
+													
+													
+												</div>
+												<div class="modal-footer">
+													<button type="button" id="submit_otp" class="btn btn-primary" onclick="checkOtp()" name="submit_otp" >Submit</button>
+													<button type="button" class="btn btn-danger modal-close-btn"
+														data-dismiss="modal" id="close_modal" name="close_modal">Close</button>
+												</div>
+											</form>
+										</div>
+									</div>
+								</div>
+
+							</div>
+							<!-- ================== End booking Modal =================  -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- SERVICE CALCULATOR END -->
+
+		
+
+
+			<!-- COUNTER NUMBER START
+                ============================================= -->
+			<div class="counter-section wrapper">
+				<div class="container">
+					<div class="row">
+
+						<div class="counter-wrap row">
+							<div class="counter-item col-md-3 wow fadeInUp">
+								<h2 class="counter">35,732</h2>
+								<div class="counter-details">
+									<p class="heading">Delivered Packages</p>
+									<p>Haulage made pick-up and drop location easy. To receive
+										packages, customers can choose more than one pick-up and drop
+										points.</p>
+									
+								</div>
+							</div>
+
+							<div class="counter-item col-md-3 wow fadeInUp">
+								<h2 class="counter">83,754</h2>
+								<div class="counter-details">
+									<p class="heading">KMS Per Month</p>
+									<p>Haulage’s quick and scheduled delivery with superior
+										customer service has achieved this mark and will continue to
+										achieve many more in future.</p>
+								</div>
+							</div>
+
+
+							<div class="counter-item col-md-3 wow fadeInUp">
+								<h2 class="counter">12,019</h2>
+								<div class="counter-details">
+									<p class="heading">Happy Customers</p>
+									<p>Haulage looks after its customers with the top most
+										pre-eminence and aspires to provide the best in class
+										transportation services.</p>
+								</div>
+							</div>
+
+							<div class="counter-item col-md-3 wow fadeInUp">
+								<h2 class="counter">31,850</h2>
+								<div class="counter-details">
+									<p class="heading">Tons of Goods</p>
+									<p>With the help of obliging drivers, white-collar staff
+										and professional helpers we have attained these number and
+										will continue to retain in future.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- COUNTER NUMBER END -->
+		</section>
+		<!-- CONTENT END -->
+
+		<!-- FOOTER START
+            ============================================= -->
+		<footer id="footer" class="wrapper clearfix">
+
+			<div class="container">
+				<div class="row">
+					<div class="footer-wrap row">
+						<!-- WIDGET FOOTER 1 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="short-desc">
+								<div class="logo-footer">
+								
+										<img data-src="image/logo.png" alt="logo image" class="lazyload"/> 
+										
+
+
+								</div>
+								<p>Haulage Global Logistics Private Limited is a leading
+									service provider which offers a complete gamut of supply chain
+									and logistics services.</p>
+								<p>Haulage solutions extend the complete supply chain from
+									returns management to raw materials.</p>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 1 END -->
+
+						<!-- WIDGET FOOTER 2 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="recent-post">
+								<h4 class="title">Recent Post</h4>
+								<div class="footer-content">
+									<div class="post-item">
+										<a href="best-logistic-company-for-outstation.html">
+											<div class="post-thumb">
+											
+											        	 <img data-src="image/out-station-footer.jpg" alt="outstation image" class="lazyload"/>
+												
+												
+												<div class="overlay"></div>
+											</div>
+										</a>
+										<div class="post-content">
+											<a href="best-logistic-company-for-outstation.html">
+												<h4>Looking For Best Logistics Company to Transfer
+													Goods Outstation?</h4>
+											</a>
+											<p>We are living in 21st century where the world has
+												seen..</p>
+											<div class="meta">
+												<span class="date">11 March 2019</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="post-item">
+									<div class="post-thumb">
+										<a href="best-houseShifting-service-in-indore.html">
+										 
+                                                    <img data-src="image/house-shifting-footer.jpg" alt="house shifting image" class="lazyload"/> 
+												
+												<div class="overlay"></div>
+											
+										</a>
+										</div>
+										<div class="post-content">
+											<a href="best-houseShifting-service-in-indore.html">
+												<h4>Best House Shifting Services In Indore</h4>
+											</a>
+											<p>Moving to a new city or new house can be
+												fascinating...</p>
+											<div class="meta">
+												<span class="date">21 February 2019</span>
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 2 END -->
+
+						<!-- WIDGET FOOTER 3 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="contact-footer">
+								<h4 class="title">Contact Us</h4>
+								<div class="footer-content">
+									<div class="contact-section">
+										<h4>Our Office Address</h4>
+										<p>406, Princes Business Skypark</p>
+										<p>Opposite Orbit Mall</p>
+										<p>A.B. Road, Indore , MP, India</p>
+										<p>For Booking : + 91 731 477 3333</p>
+										<p>For Enquiry : + 91 731 477 3314</p>
+										<p>Phone: +91 9644503333</p>
+										<p>Email : support@haulagelogistic.com</p>
+									</div>
+									<div class="contact-section">
+										<h4>Our Fabrication Address</h4>
+										<p>Haulage Fabrication</p>
+										<p>Palda, Indore</p>
+										<p>MP, India</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 3 END -->
+
+						<!-- WIDGET FOOTER 4 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="buy-now">
+								<h4 class="title">Get in touch</h4>
+								<div class="footer-content">
+									<p>Call now to know about the exciting offers.</p>
+
+									<a href="tel:0731-4773333" class="button-normal white">Call
+										Now</a>
+								</div>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 4 END -->
+					</div>
+				</div>
+			</div>
+
+			<!-- COPYRIGHT START
+                ============================================= -->
+			<div class="copyright text-center">
+				<div class="container">
+					<div class="social-icon">
+						<ul>
+							<li><a href="https://www.facebook.com/HaulageHaiNa/" target="_blank"><i
+									class="fab fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/HaulagePvt" target="_blank"><i
+									class="fab fa-twitter"></i></a></li>
+							<!-- <li><a href="http://tumblr.com/"><i class="fa fa-tumblr"></i></a></li>
+							<li><a href="http://vimeo.com/"><i class="fa fa-vimeo"></i></a></li> -->
+							<li><a
+								href="https://www.instagram.com/explore/tags/haulagegloballogisticspvtltd/" target="_blank"><i
+									class="fa fa-instagram"></i></a></li>
+							<li><a
+								href="https://in.linkedin.com/in/haulage-global-logistic-pvt-ltd-268295174" target="_blank"><i
+									class="fab fa-linkedin"></i></a></li>
+							<!-- 	<li><a href="http://dribbble.com/"><i
+									class="fa fa-dribbble"></i></a></li> -->
+							
+							<!-- <li><a href="http://rssfeed.com/"><i class="fa fa-rss"></i></a></li> -->
+						</ul>
+					</div>
+					<p>
+						Copyright 2019. All Rights Reserved. <b>Haulage Global
+							Logistics private limited</b><br> <a
+							href="https://www.delianttechnologies.com/" target="_blank"
+							style="color: #fff;">Designed with &#x2764; by  <b style="color:#b14a57;">Deliant Technologies  </b></a>
+					</p>
+				</div>
+			</div>
+			<!-- COPYRIGHT END -->
+
+		</footer>
+		<!-- FOOTER END -->
+		<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+		
+<!-- Footer progress bar start -->
+<div class="footer" id="lowerFooter">
+<marquee style="color:#d92025; font-size:xx-large;" id="disclaimerMarquee"><b>Under the Prevention of Cruelty to Animals (PCA) Act, there are strict rules for the transportation of all kinds of animals. We have strictly prohibited the transportation of animals (Hen, Rabbit, Goat, Cow, etc), Iron rod and similar type of goods.</b></marquee>
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+  </div>  
+</div>
+<!-- Footer progress bar end -->
+	</div>
+	<!-- MAIN WRAPPER END -->
+
+	<!-- Footer Scripts
+        ============================================= -->
+	<!-- External -->
+	<script type="text/javascript"
+		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBNxIH28Ik_SM-1j6F1vUUKjx7HSNTlsF4&libraries=places"></script>
+	<!-- Internal -->
+	<script type="text/javascript" src="js/plugin.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/formcalculations.js"></script>
+	<script type="text/javascript" src="js/validation.js"></script>
+	<script type="text/javascript" src="js/maps.js"></script>
+	<script type="text/javascript" src="js/emailsend.js"></script>
+	<script type="text/javascript" src="js/passengerformvalidation.js"></script>
+	<script type="text/javascript" src="js/passengernotify.js"></script>
+	<script type="text/javascript" src="js/calculationformvalidation.js"></script>
+	<script type="text/javascript" src="js/calculationformsend.js"></script>
+	<script type="text/javascript" src="js/bookingMail.js"></script>
+	<script type="text/javascript" src="js/animation.js"></script>
+
+	<script
+		src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<script type="text/javascript" src="js/SHA256.js"></script>
+
+	<!-- bootstrap validator -->
+	<script type="text/javascript" src="vendor/jquery/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="dist/js/bootstrapValidator.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"
+		type="text/javascript"></script>
+	<script src="js/bootstrap-datetimepicker.min.js"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" async></script>
+<script src="js/lazysizes.min.js" async></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#datetimepicker1').datetimepicker({
+				format : 'DD-MM-YYYY',
+				minDate : new Date(),
+				showClose : true,
+				keepOpen : false,
+			});
+			$('#datetimepicker2').datetimepicker({
+				format : 'LT',
+				showClose : true,
+				keepOpen : false,
+			});
+			
+			//console.log("=============",SHA256('Anjali'));
+		});
+	</script>
+	
+	<script>
+
+function getLocation(id) {
+  if (navigator.geolocation) {
+	  if(id=="txtSource"){
+    	navigator.geolocation.getCurrentPosition(showPickupPosition);
+	  }
+	  else if(id="txtDestination"){
+		  navigator.geolocation.getCurrentPosition(showDropPosition);
+	  }
+  } else { 
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+
+function showDropPosition(position) {
+	var location = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude+
+  "<br>Accuracy : "+position.coords.accuracy;
+      geocodeLatLng( position.coords.latitude,position.coords.longitude,"txtDestination");
+}
+function showPickupPosition(position) {
+	var location = "Latitude: " + position.coords.latitude + 
+  "<br>Longitude: " + position.coords.longitude+
+  "<br>Accuracy : "+position.coords.accuracy;
+      geocodeLatLng( position.coords.latitude,position.coords.longitude,"txtSource");
+}
+function geocodeLatLng( lat,l_long,id) {
+		var geocoder = new google.maps.Geocoder;
+        var latlng = {lat: parseFloat(lat), lng: parseFloat(l_long)};
+        geocoder.geocode({'location': latlng}, function(results, status) {
+        window.result =results;
+          if (status === 'OK') {
+            if (results.length>0) {
+              var add=true;
+              for(i=0;i<results.length;i++){
+            	  if(results[i].types.includes("premise")&&add){
+            		  add = false;
+            		  document.getElementById(id).value=results[i].formatted_address;
+            	  }
+              }
+              if(add){
+    			  document.getElementById(id).value=results[0].formatted_address;
+    	  }
+            } else {
+              window.alert("Can't fetch your current location");
+            }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+          }
+        });
+      }
+
+
+
+</script>
+</body>
+
+</html>

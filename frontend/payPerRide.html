@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+<!-- Google Fonts
+        ============================================= -->
+<link
+	href='https://fonts.googleapis.com/css?family=Lato:400,900,700,300'
+	rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700'
+	rel='stylesheet' type='text/css'>
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+<!-- Stylesheets
+        ============================================= -->
+<link rel="stylesheet" href="css/plugin.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css/responsive.css" type="text/css" />
+
+<!-- JavaScripts ============================================= -->
+<link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+	integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+	crossorigin="anonymous">
+
+<script type="text/javascript" src="js/jquery.js"></script>
+
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Pay Per Ride Service | Haulage | Logistics &
+	Transportation</title>
+<!-- Favicon -->
+<link rel="shortcut icon" href="image/favicon.ico" />
+</head>
+
+<body onload="hideTotal()">
+	<div id="preloader">
+		<div id="status">
+			 <img src="image/logo.png" alt="logo image" /> 
+
+
+		</div>
+	</div>
+
+	<!-- MAIN WRAPPER
+        ============================================= -->
+	<div id="main-wrapper" class="clearfix">
+
+		<!-- HEADER
+            ============================================= -->
+		<header id="header" class="clearfix">
+			<div class="site-header">
+				<div class="container">
+					<div class="row">
+						<div class="top-header clearfix">
+							<div class="logo col-md-4">
+								<a href="index.html">  <img
+										src="image/logo.png" alt="logo image" /> 
+								</a>
+							</div>
+
+							<div class="info col-md-8">
+								<ul>
+									<li><i class="fa fa-clock-o"></i>
+										<p>
+											<span class="heading">Opening Hours</span> <span>07:30AM
+												- 07:30PM</span>
+										</p></li>
+									<li><a href="tel:07314773333"><i class="fa fa-phone"></i>
+											<p>
+												<span class="heading">For Booking</span> <span>(0731) 477
+													3333</span>
+											</p></a></li>
+									<li class="last"><a
+										href="mailto:support@haulagelogistic.com"> <i
+											class="fa fa-envelope"></i>
+											<p>
+												<span class="heading">Email Us</span> <span>support@haulagelogistic.com</span>
+											</p></a></li>
+								</ul>
+							</div>
+
+							<div class="slide-buttons">
+								<button id="slide-buttons"
+									class="slide-button icon icon-navicon"></button>
+							</div>
+						</div>
+						<div class="navigation">
+							<div class="main-menu">
+								<ul class="menu">
+									<li><a href="index.html">Home</a></li>
+									<li><a href="about-us.html">About Us</a></li>
+									<li class="has-sub"><a href="services.html">Services</a>
+										<ul>
+											<li><a href="shiftingServices.html">Shifting</a></li>
+											<!-- <li><a href="single-services.html">Ocean Netwok</a></li>
+                                               <li><a href="single-services.html">Air Freight</a></li> -->
+											<li><a href="payPerRide.html">Pay Per Ride</a></li>
+											<li><a href="outStation.html">Out Station</a></li>
+
+											<li class="last"><a href="fabrication.html">Fabrication</a></li>
+										</ul></li>
+									<li><a href="blog.html">Blog</a></li>
+									<li><a href="contact.html">Contact</a></li>
+									<li><a href="index.html#services-calculator">Book
+											Now&nbsp;&nbsp;<i class="fa fa-truck"></i>
+									</a></li>
+								</ul>
+
+								<div class="right-section">
+									<!-- <div class="search">
+										<i class="fa fa-search"></i>
+									</div> -->
+									<div class="quote-link">
+										<a href="index.html#RequestQuote">Request a Quote</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Menu Mobile
+                ============================================= -->
+			<nav id="c-menu--slide-right" class="c-menu c-menu--slide-right">
+				<button class="c-menu__close icon icon-close"></button>
+
+				<ul class="slide-menu-items">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="about-us.html">About Us</a></li>
+					<li class="has-sub"><a href="services.html">Services</a>
+						<ul>
+							<li><a href="shiftingServices.html">Shifting</a></li>
+
+							<li><a href="payPerRide.html">Pay Per Ride</a></li>
+							<li><a href="outStation.html">Out Station</a></li>
+
+							<li class="last"><a href="fabrication.html">Fabrication</a></li>
+						</ul></li>
+					<li><a href="blog.html">Blog</a></li>
+					<li><a href="contact.html">Contact</a></li>
+					<li><a href="index.html#services-calculator">Book
+							Now&nbsp;&nbsp;<i class="fa fa-truck"></i>
+					</a></li>
+				</ul>
+
+				<div class="info">
+					<ul>
+						<li>
+							<p>
+								<span class="heading">Opening Hours</span> <span>07:30AM
+												- 07:30PM</span>
+							</p>
+						</li>
+						<li>
+							<p>
+								<a href="tel:07314773333"><span class="heading">For Booking</span> <span>(0731) 477 3333</span></a>
+							</p>
+						</li>
+						<li class="last">
+							<p>
+								<a href="mailto:support@haulagelogistic.com"><span
+									class="heading">Email Us</span> <span>support@haulagelogistic.com</span></a>
+							</p>
+						</li>
+					</ul>
+				</div>
+			</nav>
+
+			<div id="slide-overlay" class="slide-overlay"></div>
+			<!-- Menu Mobile End -->
+		</header>
+		<!-- HEADER END -->
+
+		<!-- PAGE TITLE START
+            ============================================= -->
+		<section class="page-title wrapper clearfix"
+			style="background-image: url(image/about-page-bg.jpg);">
+			<div class="container">
+				<div class="row">
+					<div class="title-wrap wow fadeIn" data-wow-delay="1s">
+						<h1>Pay Per Ride Service</h1>
+						<div class="breadcrumbs">
+							<p>
+								You Are Here : <span><a href="index.html">Home</a></span> <span
+									class="arrow"><i class="icon icon-arrow-right"></i></span> <span><a
+									href="services.html">Services</a></span> <span class="arrow"><i
+									class="icon icon-arrow-right"></i></span> <span>Pay Per Ride</span>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- PAGE TITLE END -->
+
+		<!-- CONTENT START
+            ============================================= -->
+		<section id="content" class="clearfix">
+			<!-- SINGLE SERVICES START
+                ============================================= -->
+			<div class="single-services wrapper bg-color">
+				<div class="container">
+					<div class="row">
+						<div class="single-services-wrap row">
+							<div class="single-content col-md-9">
+								 <img data-src="image/pay-per-ride.png"
+									alt="pay per ride" class="lazyload" /> 
+								<h3 class="title">Pay Per Ride</h3>
+								<div class="content-text">
+									<p>
+										Now no need to pay a lump sum amount for your transportation
+										requirements when you have Haulage, just choose your loading
+										based on your daily necessity. Pay-Per-Ride is always a good
+										choice to make, just opt when you need. It is usually the most
+										cost-effective and flexible method of getting your stuff to
+										your door. Our goal is to simplify and easy available logistic
+										services. We provide quick and scheduled delivery with
+										superior customer service. Haulage provides the most trusted
+										transportation services in the logistics business, considering
+										fast-changing and raising client needs. We provide
+										Pay-Per-Ride in the best budget-friendly way starting from
+										just <b>Rs. 151 .</b> This is why we say we provide <b>Logistics
+											Beyond Imagination.</b>
+									</p>
+								</div>
+								<br>
+								<table width="100%">
+									<tr>
+										<th>Vehicle Type</th>
+										<th>Fixed Charges 0 to 5 km</th>
+										<th>Fixed Charges 0 to 8 km</th>
+									</tr>
+
+									<tr>
+										<td>Tata Ace (1.5 ton)</td>
+										<td>Rs. 151</td>
+										<td>Rs. 251</td>
+									</tr>
+									<tr>
+										<td>Loading Rikshaw (1 ton)</td>
+										<td>Rs. 151</td>
+										<td>Rs. 251</td>
+									</tr>
+									<tr>
+										<td>Three Wheeler Vikram (1 ton)</td>
+										<td>Rs. 151</td>
+										<td>Rs. 251</td>
+									</tr>
+								</table>
+								<p>* Terms & Conditions Apply</p>
+								<br>
+								<table width="100%">
+									<tr>
+										<th>Vehicle Type</th>
+										<th>Fixed Charges Up to 10 km</th>
+										<th>Fixed Charges Post 10 km</th>
+									</tr>
+									<tr>
+										<td>Pick-up (2 ton)</td>
+										<td>Rs. 351</td>
+										<td>Rs. 24/km</td>
+									</tr>
+								</table>
+								<p>* Terms & Conditions Apply</p>
+								<br>
+								<p>
+									<b>Haulage drivers </b> are always well dressed and well versed
+									in their job. They always try to opt for the shortest yet the
+									safest way to reach on time with the safety of goods.
+								</p>
+								<div class="features-wrap row">
+									<div class="col-md-4">
+										<div class="features-item wow fadeInUp" data-wow-delay="0.8s">
+											<div class="icon-wrap">
+												<i class="fas fa-rupee-sign"></i>
+											</div>
+											<div class="text">
+												<h4>Price Transparency</h4>
+												<p>We believe in openness, so there is no hidden cost.
+													We do not charge the different cost to different customers.
+												</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="features-item wow fadeInUp" data-wow-delay="1.0s">
+											<div class="icon-wrap">
+												<i class="fab fa-creative-commons-zero"></i>
+											</div>
+											<div class="text">
+												<h4>Zero Cancellation</h4>
+												<p>No cancellation charges will be taken from our
+													customers until the loading will be on it's way to reach
+													its destination.</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="col-md-4">
+										<div class="features-item wow fadeInUp" data-wow-delay="1.2s">
+											<div class="icon-wrap">
+												<i class="fas fa-calendar-day"></i>
+											</div>
+											<div class="text">
+												<h4>Works on Sundays</h4>
+												<p>Customers can not only utilize Haulage services on
+													weekdays but can also avail on Sundays, as we are available
+													every day.</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="sidebar col-md-3">
+								<div class="widget other-services">
+									<h4 class="title">Other Services</h4>
+									<ul>
+										<li><a href="shiftingServices.html">Shifting</a></li>
+
+										<li><a href="outStation.html">Out Station</a></li>
+										<li><a href="fabrication.html">Fabrication</a></li>
+									</ul>
+								</div>
+
+							</div>
+						</div>
+
+						<div class="contact-us-banner text-center wow fadeIn"
+							data-wow-delay="0.5s">
+							<h1>Are you ready to work with us?</h1>
+							<a href="contact.html" class="button-normal">Contact Us Now</a>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<!-- SINGLE SERVICES END -->
+		</section>
+		<!-- CONTENT END -->
+
+		<!-- FOOTER START
+            ============================================= -->
+		<footer id="footer" class="wrapper clearfix">
+
+			<div class="container">
+				<div class="row">
+					<div class="footer-wrap row">
+						<!-- WIDGET FOOTER 1 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="short-desc">
+								<div class="logo-footer">
+									 <img data-src="image/logo.png" alt="logo image" class="lazyload" />
+									
+								</div>
+								<p>Haulage Global Logistics Private Limited is a leading
+									service provider which offers a complete gamut of supply chain
+									and logistics services.</p>
+								<p>Haulage solutions extend the complete supply chain from
+									returns management to raw materials.</p>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 1 END -->
+
+						<!-- WIDGET FOOTER 2 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="recent-post">
+								<h4 class="title">Recent Post</h4>
+								<div class="footer-content">
+									<div class="post-item">
+										<a href="best-logistic-company-for-outstation.html">
+											<div class="post-thumb">
+												 <img data-src="image/out-station-footer.jpg"
+													alt="outstation image" class="lazyload" /> 
+												<!-- <img src="https://res.cloudinary.com/deliant/image/upload/v1552545250/out-station-footer.jpg" alt="" /> -->
+												<div class="overlay"></div>
+											</div>
+										</a>
+										<div class="post-content">
+											<a href="best-logistic-company-for-outstation.html">
+												<h4>Looking For Best Logistics Company to Transfer
+													Goods Outstation?</h4>
+											</a>
+											<p>We are living in 21st century where the world has
+												seen..</p>
+											<div class="meta">
+												<span class="date">11 March 2019</span>
+											</div>
+										</div>
+									</div>
+
+									<div class="post-item">
+										<a href="best-houseShifting-service-in-indore.html">
+											<div class="post-thumb">
+												 <img
+													data-src="image/house-shifting-footer.jpg"
+													alt="house shifting image" class="lazyload" /> 
+
+												<div class="overlay"></div>
+											</div>
+										</a>
+										<div class="post-content">
+											<a href="best-houseShifting-service-in-indore.html">
+												<h4>Best House Shifting Services In Indore</h4>
+											</a>
+											<p>Moving to a new city or new house can be
+												fascinating...</p>
+											<div class="meta">
+												<span class="date">21 February 2019</span>
+											</div>
+										</div>
+									</div>
+
+
+								</div>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 2 END -->
+
+						<!-- WIDGET FOOTER 3 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="contact-footer">
+								<h4 class="title">Contact Us</h4>
+								<div class="footer-content">
+									<div class="contact-section">
+										<h4>Our Office Address</h4>
+										<p>406, Princes Business Skypark</p>
+										<p>Opposite Orbit Mall</p>
+										<p>A.B. Road, Indore</p>
+										<p>MP, India</p>
+										<p>For Booking : + 91 731 477 3333</p>
+										<p>For Enquiry : + 91 731 477 3314</p>
+										<p>Phone: +91 9644503333</p>
+										<p>Email : support@haulagelogistic.com</p>
+									</div>
+									<div class="contact-section">
+										<h4>Our Fabrication Address</h4>
+										<p>Haulage Fabrication</p>
+										<p>Palda, Indore</p>
+										<p>MP, India</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 3 END -->
+
+						<!-- WIDGET FOOTER 4 START
+                            ============================================= -->
+						<div class="widget-footer col-md-3">
+							<div class="buy-now">
+								<h4 class="title">Get in touch</h4>
+								<div class="footer-content">
+									<p>Call now to know about the exciting offers.</p>
+
+									<a href="tel:07314773333" class="button-normal white">Call
+										Now</a>
+								</div>
+							</div>
+						</div>
+						<!-- WIDGET FOOTER 4 END -->
+					</div>
+				</div>
+			</div>
+
+			<!-- COPYRIGHT START
+                ============================================= -->
+			<div class="copyright text-center">
+				<div class="container">
+					<div class="social-icon">
+						<ul>
+							<li><a href="https://www.facebook.com/HaulageHaiNa/"
+								target="_blank"><i class="fab fa-facebook"></i></a></li>
+							<li><a href="https://twitter.com/HaulagePvt" target="_blank"><i
+									class="fab fa-twitter"></i></a></li>
+							<!-- <li><a href="http://tumblr.com/"><i class="fa fa-tumblr"></i></a></li>
+							<li><a href="http://vimeo.com/"><i class="fa fa-vimeo"></i></a></li> -->
+							<li><a
+								href="https://in.linkedin.com/in/haulage-global-logistic-pvt-ltd-268295174"
+								target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<!-- 	<li><a href="http://dribbble.com/"><i
+									class="fa fa-dribbble"></i></a></li> -->
+							<li><a
+								href="https://www.instagram.com/explore/tags/haulagegloballogisticspvtltd/"
+								target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<!-- <li><a href="http://rssfeed.com/"><i class="fa fa-rss"></i></a></li> -->
+						</ul>
+					</div>
+					<p>
+						Copyright 2019. All Rights Reserved. <b>Haulage Global
+							Logistics private limited</b><br> <a
+							href="https://www.delianttechnologies.com/" target="_blank"
+							style="color: #fff;">Designed with &#x2764; by <b
+							style="color: #b14a57;">Deliant Technologies </b></a>
+					</p>
+				</div>
+			</div>
+			<!-- COPYRIGHT END -->
+
+		</footer>
+		<!-- FOOTER END -->
+
+	<!-- Back to top button started -->
+		<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+		
+<!-- Footer progress bar start -->
+<div class="footer" id="lowerFooter">
+<marquee style="color:#d92025; font-size:xx-large;" id="disclaimerMarquee"><b>Under the Prevention of Cruelty to Animals (PCA) Act, there are strict rules for the transportation of all kinds of animals. We have strictly prohibited the transportation of animals (Hen, Rabbit, Goat, Cow, etc), Iron rod and similar type of goods.</b></marquee>
+  <div class="progress-container">
+    <div class="progress-bar" id="myBar"></div>
+  </div>  
+  <!-- Back to top button end -->
+
+	</div>
+	<!-- MAIN WRAPPER END -->
+
+	<!-- Footer Scripts
+        ============================================= -->
+	<!-- External -->
+	<script type="text/javascript" src="js/plugin.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+    <script src="js/lazysizes.min.js" async></script>
+
+</body>
+
+</html>
