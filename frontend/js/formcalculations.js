@@ -380,7 +380,9 @@ function setPrice(value){
 	var theForm = document.forms["calculationform"];
 	var selectedServicesType = theForm.elements["services_type"];
 	if(value!=undefined&&value!=0){
-	divobj.innerHTML = "Estimated Price =  ₹" + value;
+		$("#estimated_price").val(value);
+		divobj.innerHTML = "Estimated Price =  ₹" + value;
+
 	if(selectedServicesType.value=='Fabrication'){
 	var divobjmodalOpenButton = document.getElementById('modalOpenButton');
 	divobjmodalOpenButton.style.display = 'none';
@@ -448,7 +450,7 @@ $(document).on("click", ".open-AddBookDialog", function () {
     	helperDetails+="  <b>Un-loading :</b> Yes<br>";
     }else{    	
     	helperDetails+="  <b>Un-loading :</b> No<br>";
-}
+	}
     if(!helperSelected){
     	helperDetails+="  <b style='color: red;'>Neither loading nor unloading selected by user. Kindly ask on call.</b>";
     }else{

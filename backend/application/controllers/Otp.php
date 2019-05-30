@@ -15,9 +15,7 @@ class otp extends CI_Controller {
 		$this->load->library('session');*/
 		//session_start(); 
 	}
-	public function index()
-	{
-		log_message('info','index function called');
+	public function index()	{
 		//echo $_SESSION['__ci_last_regenerate']; die;
 		if(isset($_POST['mobile']) && !empty($_POST['mobile'])){
 			// Get OTP master
@@ -168,9 +166,8 @@ class otp extends CI_Controller {
 	}
 
 	public function test(){
-		$this->load->services('testServices');
-		$this->testServices->test1();
-		$this->testServices->test2();
+		$this->load->helper('common_helper');
+		logger('info', 'test message');
+		
 	}
-	
 }
