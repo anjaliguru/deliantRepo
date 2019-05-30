@@ -36,12 +36,10 @@
 <!-- JavaScripts
         ============================================= -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
 
 <!-- script to disable characters in text box -->
 <script>
-    //var base_url_api = 'http://haulagelogistics.co.in/otp/';
-    var base_url_api = "http://localhost/anjaliguru/otp_module/"; // Localhost
+    var base_url_api = 'http://haulagelogistics.co.in/otp/';
 	function restrictAlphabets(e) {
 		var x = e.which || e.keycode;
 		if ((x >= 48 && x <= 57) || x == 8 || (x >= 35 && x <= 40) || x == 46)
@@ -51,29 +49,26 @@
 	}
 </script>
 <script>
+var elementIsClicked = false; 
+function clickHandler(){ 
+  elementIsClicked = true;
+  }
 	$(window).scroll(function() {		  
 		var isshown = sessionStorage.getItem('isshown');
-		if ($(document).scrollTop() > 200 && isshown == null) {
+		if ($(document).scrollTop() > 200 && isshown == null && elementIsClicked) {
 			try {
 				sessionStorage.setItem('isshown', 1);
-					$('#passengerModal').modal({
-					backdrop : 'static',
-					keyboard : false
-
-				});
 				$('#passengerModal').modal('show');
+				$('#passengeraudio').get(0).play();
+
+				$('#passengerModal').on('hidden.bs.modal', function (e) {
+					$('#passengeraudio').get(0).load();
+					})
+				
 			} catch (err) {
 			}
 		}
 	});
-	
-/*	function get_encrypt($string){
-    	return CryptoJS.AES.encrypt($string, 'Haulage');
-	}
-	function getdecrypt($string){
-		var decrypted = CryptoJS.AES.decrypt(encrypted, 'Haulage');
-		return decrypted.toString(CryptoJS.enc.Utf8);
-	}*/
 </script>
 <!-- Google maps API -->
 
@@ -86,7 +81,7 @@
 <link rel="shortcut icon" href="image/favicon.ico" />
 </head>
 
-<body onload="hideTotal()" >
+<body onload="hideTotal()" onclick="clickHandler()">
 	<div id="preloader">
 		<div id="status">
 		
@@ -101,6 +96,7 @@
 
       <!-- Modal content-->
       <div class="modal-content">
+          
         <div class="modal-header" style="height:50px;">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h3 class="modal-title" style="color: #124892;text-align:center;">Haulage Passenger</h3>
@@ -123,6 +119,7 @@
 </div>
 </div>
      
+      <audio src="image/passenger-audio.mp3" id="passengeraudio" controls="controls"></audio> 
 <!-- </div> -->
  <h4 style="margin-bottom: 0px;">Drop your number for early access to the services..</h4>
        <!--   <form style="color:#000;" id="passenger" class="form-horizontal"  >
@@ -800,7 +797,6 @@
 														<button type="button"
 															class="btn btn-default btn-lg minus-btn"
 															onclick="removeHelper()">
-															
 															<img
 																data-src="image/minus.svg"
 																alt="minus svg" class="lazyload"/>
@@ -822,6 +818,7 @@
 										<input style="width: 50%;" type="checkbox" id="field_terms" onchange="calculateTotal()" required name="terms"></p>
 										</div>
 										<div class="form-group row" align="center">
+										    
 											<button type="submit" id="totalPrice"
 												class="btn btn-info btn-lg text-center"
 												onclick="calculateTotal()">Calculate fare ?</button>
@@ -984,7 +981,7 @@
 
 
 												</div>
-												
+												<!--getOtp()-->
 												<div class="modal-footer">
 													<button type="button" id="submit_booking"
 														class="btn btn-primary" onclick="getOtp()"
@@ -1279,7 +1276,7 @@
         ============================================= -->
 	<!-- External -->
 	<script type="text/javascript"
-		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBNxIH28Ik_SM-1j6F1vUUKjx7HSNTlsF4&libraries=places"></script>
+		src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCCvD3IN_ZZFhjfpoP_pmmGubC2gr1dNsE&libraries=places"></script>
 	<!-- Internal -->
 	<script type="text/javascript" src="js/plugin.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
@@ -1314,7 +1311,6 @@
 	<script src="js/bootstrap-datetimepicker.min.js"></script>
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js" async></script>
 <script src="js/lazysizes.min.js" async></script>
-
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#datetimepicker1').datetimepicker({
@@ -1329,7 +1325,23 @@
 				keepOpen : false,
 			});
 			
-			//console.log("=============",SHA256('Anjali'));
+			jQuery.ajax({
+                url: base_url_api + 'api/Api_request_count/',
+                contentType: "application/json;",
+                type: "POST",
+                data:  JSON.stringify(
+                    {
+                        "param":"page_hit",
+                        "pg_nm":"my test page",
+                        "hit_time":"2019-05-18 02:52:38",
+                        "ip_address":"192:168:1.1",
+                        "latitude":"22.7314985", 
+                        "longitude" : "75.8824308",
+                        "accuracy":"2873",
+                        "county":"IN",
+                        "region":"MP"
+                    }) ,
+        	}); 
 		});
 	</script>
 	
@@ -1386,9 +1398,8 @@ function geocodeLatLng( lat,l_long,id) {
         });
       }
 
-
-
 </script>
+	
 </body>
 
 </html>

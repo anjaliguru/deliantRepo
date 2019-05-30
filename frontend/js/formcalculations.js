@@ -203,18 +203,31 @@ function calculateTotal() {
 			    if(source==undefined||source=='undefined'||source==''||source.trim().length<1)
 		    	{
 			    	// add empty error flag
+			    	 document.getElementById("txtSource").setCustomValidity("Please enter a location");
 		    	return;
 		    	}
 		    else{
 		    	// remove error flag
+		    	document.getElementById("txtSource").setCustomValidity("");
 		    }
 		     if(destination==undefined||destination=='undefined'||destination==''||destination.length<1){
 		    	// add empty error flag
+		    	 document.getElementById("txtDestination").setCustomValidity("Please enter a location");
 			    	return;
 		    }
 		     else{
 		    	// remove empty error flag
+		    	 document.getElementById("txtDestination").setCustomValidity("");
 			    }
+		     //if terms and conditions not accepted
+		     
+		     if(!$('#field_terms').prop('checked')){
+		    	 document.getElementById("field_terms").setCustomValidity("Please accept the Terms and Conditions");
+		    	 return;
+		     }else{
+		    	 document.getElementById("field_terms").setCustomValidity("");
+		     }
+		     
 		    // getLocation();
 			    // *********DISTANCE **********************//
 			    var service = new google.maps.DistanceMatrixService();
@@ -243,6 +256,7 @@ function calculateTotal() {
 						// alert("Disance must be greter than 0");
 							var divobj = document.getElementById('distancediv');
 							divobj.style.display = 'block';
+							alert("Source and destination are same or distance between them is too less.");
 							// display the result
 							setPrice(finalprice);
 						}
@@ -314,6 +328,8 @@ function showSubMenu() {
 		$('#distance').hide();
 		// hide services section
 		$('#services').hide();
+		// hide the t&c checkbox
+		$('#tnc').hide();
 		// hide and reset helper related inputs
 	    $('#toggle-trigger').bootstrapToggle('off');
 		$('#loading').prop('checked',false);
@@ -336,6 +352,7 @@ if(selectedServicesType.value=='Fabrication'){
 	// hide unrelated inputs
 	$('#distance').hide();
 	$('#services').hide();
+	$('#tnc').hide();
     $('#toggle-trigger').bootstrapToggle('off');
 	$('#loading').prop('checked',false);
 	$('#unloading').prop('checked',false);
@@ -351,6 +368,7 @@ if(selectedServicesType.value=='Fabrication'){
 	divobjdistance.style.display = 'block';
 	var divobjservices = document.getElementById('services');
 	divobjservices.style.display = 'block';
+	$('#tnc').show();
 }
 }
 function addDropdown(value) {
@@ -380,9 +398,8 @@ function setPrice(value){
 	var theForm = document.forms["calculationform"];
 	var selectedServicesType = theForm.elements["services_type"];
 	if(value!=undefined&&value!=0){
-		$("#estimated_price").val(value);
-		divobj.innerHTML = "Estimated Price =  ₹" + value;
-
+	    $("#estimated_price").val(value);
+	divobj.innerHTML = "Estimated Price =  ₹" + value;
 	if(selectedServicesType.value=='Fabrication'){
 	var divobjmodalOpenButton = document.getElementById('modalOpenButton');
 	divobjmodalOpenButton.style.display = 'none';
@@ -450,7 +467,7 @@ $(document).on("click", ".open-AddBookDialog", function () {
     	helperDetails+="  <b>Un-loading :</b> Yes<br>";
     }else{    	
     	helperDetails+="  <b>Un-loading :</b> No<br>";
-	}
+}
     if(!helperSelected){
     	helperDetails+="  <b style='color: red;'>Neither loading nor unloading selected by user. Kindly ask on call.</b>";
     }else{

@@ -21,7 +21,7 @@ $(document).ready(function() {
                         message: 'The name must be more than 6 and less than 30 characters long'
                     },
                     regexp: {
-                        regexp: /^[a-zA-Z_\.]+$/,
+                        regexp: /^[a-zA-Z ]+$/,
                         message: 'The name can only consist of alphabetical.'
                     }
                 }
@@ -30,57 +30,51 @@ $(document).ready(function() {
            
             userEmail: {
                 validators: {
-					notEmpty: {
+                    notEmpty: {
                         message: 'Please enter email id.'
                     },
                    
-					 regexp: {
+                     regexp: {
                         regexp:  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
                         message: 'Enter valid email id.'
                     }
                 }
             },
-			 telephone: {
+             telephone: {
                 validators: {
-					notEmpty: {
+                    notEmpty: {
                         message: 'Please enter mobile number.'
                     },
                     
-					 regexp: {
-		                        //regexp: /^\d{10}$/ ,///^\d+$/, 
+                     regexp: {
+                                //regexp: /^\d{10}$/ ,///^\d+$/, 
                                 regexp: /^(6|7|8|9)\d{9}$/, 
-		                        message: 'Enter valid mobile number.'
-		                    }
+                                message: 'Enter valid mobile number.'
+                            }
                 }
             },
-			subject: {
+            subject: {
                 validators: {
-					notEmpty: {
+                    notEmpty: {
                         message: 'Please enter subject.'
                     }
                     
-					}
+                    }
             },
-			message: {
+            message: {
                 validators: {
-					notEmpty: {
+                    notEmpty: {
                         message: 'Please enter message.'
                     }
                     
-					}
+                    }
             }
            
            
             
         }
     });
-	 $('#validateBtn').click(function() {
-		  console.log('submit clicked');
-        var respn =$('#defaultForm1').bootstrapValidator('validate');
-		window.respn=respn;
-		console.log('respn  '+respn);
-		
-    });
+
 
 
  });

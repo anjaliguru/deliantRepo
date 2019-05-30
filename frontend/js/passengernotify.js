@@ -29,8 +29,9 @@ function passengerNotify() {
 	
 		
 	
-
-
+    
+	$('#ajax-loader1').show();
+	$('#booking_success1').hide();
 	$('#notifyModal').modal('show');
       		jQuery.ajax({
 		url: "sendEmail.php",
@@ -43,19 +44,25 @@ function passengerNotify() {
 				this.reset();
 				$('#passengerModal').hide();
 });
-		document.getElementById('ajax-loader1').style.display='none';
-		document.getElementById('booking_success1').style.display='block'; 
-	//	document.getElementById('error').innerHTML="success";
-		},
+	     setTimeout(function(){
+ $('#ajax-loader1').hide();
+}, 3000);
+setTimeout(function(){
+ $('#booking_success1').show();
+}, 3000);
+				},
 		error:function (data){
 			console.log(data);
 			$( '#passenger' ).each(function(){
 				this.reset();
 				
 });			
-		document.getElementById('ajax-loader1').style.display='none';
-		document.getElementById('booking_success1').style.display='block';
-		//document.getElementById('error').innerHTML="error";
-		}
+	      setTimeout(function(){
+ $('#ajax-loader1').hide();
+}, 3000);
+setTimeout(function(){
+ $('#booking_success1').show();
+}, 3000);
+				}
 		});
 }

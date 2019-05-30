@@ -12,6 +12,8 @@
 	var marqueeShown=false;
 
 	$(window).load(function() {
+	    pageHit();
+	    marqueeShown=false;
 		$('#status').fadeOut();
 		$('#preloader').delay(10).fadeOut('fast');
 		$('body').delay(10).css({
@@ -41,7 +43,8 @@
 				if ($(this).scrollTop() > 250 && !marqueeShown) {
 					marqueeShown=true;
 					document.getElementById("lowerFooter").style.display='block';
-					document.getElementById('disclaimerMarquee').start();					
+					document.getElementById('disclaimerMarquee').start();
+				
 				} else if($(this).scrollTop() <= 250 && marqueeShown) {
 					marqueeShown=false;
 					document.getElementById('disclaimerMarquee').stop();
@@ -277,4 +280,29 @@ function changeCount(){
 	    $('#helperCount').hide();
     }
 	calculateTotal();
+}
+
+
+function pageHit(){
+	
+	var pageURL,country,ip,region,address,currLocation;
+	navigator.geolocation.getCurrentPosition(showPickupPosition);
+	function showPickupPosition(position) {
+		currLocation = "Latitude: " + position.coords.latitude + 
+	  " Longitude: " + position.coords.longitude+
+	  " Accuracy : "+position.coords.accuracy;
+		
+		 $.getJSON("http://ipinfo.io", function (data) {
+			 country=  data.country;
+			 ip = data.ip;
+			 region = data.region;
+			 console.log("County: " + country + "\nIP: " + ip + "\nRegion: " + region + "\nLocation: " + currLocation);
+			 pageURL = $(location).attr("href");				
+				console.log('page name  '+pageURL);
+			 
+	     });
+	}
+	
+
+	 
 }

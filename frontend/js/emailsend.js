@@ -33,7 +33,9 @@ if(content== 'null'){
     var theForm = document.forms["quotationform"];
 	var servicetype1 = theForm.elements["content1"];
      window.servicetype1 = servicetype1;
-		//alert(servicetype1.value);
+	
+	$('#ajax-loader1').show();
+	$('#booking_success1').hide();
 $('#notifyModal').modal('show');
       		jQuery.ajax({
 		url: "sendEmail.php",
@@ -46,10 +48,15 @@ $('#notifyModal').modal('show');
 				this.reset();
 				
 });
-		document.getElementById('ajax-loader1').style.display='none';
-		document.getElementById('booking_success1').style.display='block'; 
-		// document.getElementById('emailMsg').innerHTML="donez ";
-		},
+		setTimeout(function(){
+ $('#ajax-loader1').hide();
+}, 3000);
+setTimeout(function(){
+ $('#booking_success1').show();
+}, 3000);
+
+		//	$('#booking_success1').show();
+			},
 		error:function (data){
 			console.log(data);
 			$( '#quotationform').each(function(){
@@ -57,31 +64,15 @@ $('#notifyModal').modal('show');
 				
 				
 });			
-		document.getElementById('ajax-loader1').style.display='none';
-		document.getElementById('booking_success1').style.display='block';
-		 //document.getElementById('emailMsg').innerHTML="error ";
-		}
+            setTimeout(function(){
+ $('#ajax-loader1').hide();
+}, 3000);
+setTimeout(function(){
+ $('#booking_success1').show();
+}, 3000);
+			}
 		});
 		
 }
-// function checkEmail(){
-// var emailText = document.getElementById("userEmail");
-//var form_content = document.getElementById("content").value;
-///alert(form_content);
-// var email = emailText.value;
-// if(email==''  ){
-	//emailText.style.borderColor = "green";
-	// document.getElementById('emailMsg').innerHTML="*All fields required !";
-	// return false ;
-// }else{
-	// var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  // if(!regex.test(email)){	  
-		// document.getElementById('emailMsg').innerHTML="Enter correct email id !";
-	// return;
-  // }else{
-	  // document.getElementById('emailMsg').innerHTML=" ";
-// }
-// }
 
-// }
 

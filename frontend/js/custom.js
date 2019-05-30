@@ -4,7 +4,7 @@ function getOtp(){
     var shallReturn = false;
     for(i=0;i<isvalid[0].length;i++){
         if(!isvalid[0][i].validity.valid){
-            console.log(isvalid[0][i].name +' is not valid');
+            //console.log(isvalid[0][i].name +' is not valid');
             shallReturn =true;
         }
     }
@@ -19,10 +19,10 @@ function getOtp(){
         url: base_url_api + 'api/otp',
         contentType: "application/json;",
         type: "POST",
-        data:  JSON.stringify({"param":"registration","mobileno":$('#phone').val()}) ,
+        data:  JSON.stringify({"param":"registration","mobileno":$('#phone').val(),"name":$('#name').val() }) ,
         dataType: "json",
         success: function(result) {
-            console.log("get otp result =============== ",result);
+        //  console.log("get otp result =============== ",result);
             $('#ajax-loader').hide(); 
             $('.modal-display').hide();
             //$('#mobile_no').val($('#phone').val());
@@ -40,7 +40,7 @@ function checkOtp(){
     var shallReturn = false;
     for(i=0;i<isvalid[0].length;i++){
         if(!isvalid[0][i].validity.valid){
-            console.log(isvalid[0][i].name +' is not valid');
+           // console.log(isvalid[0][i].name +' is not valid');
             shallReturn =true;
         }
     }
@@ -57,6 +57,7 @@ function checkOtp(){
             {
                 "param":"checkOtp",
                 "mobileno":$('#mobile_no').val(),
+                //"otp":$('#otp').val(),
                 "otp":encode_string($('#otp').val()),
                 "count_type":"attempt_count"
             }),
@@ -97,7 +98,7 @@ function resend_otp(){
     jQuery.ajax({
         url: base_url_api + 'api/otp',
         type: "POST",
-        data:  JSON.stringify({"param":"registration","mobileno":$('#mobile_no').val()}) ,
+        data:  JSON.stringify({"param":"registration","mobileno":$('#mobile_no').val(),"name":$('#name').val()}) ,
         dataType: "json",
         success: function(result) {
             $('#ajax-loader').hide(); 
@@ -181,7 +182,7 @@ $(document).ready(function() {
         window.rs=rs;
     });*/
     $('#mobile_no').blur(function(){
-        console.log($('mobile_no').val());
+        //console.log($('mobile_no').val());
         $('#phone').val($('#mobile_no').val());
     });
     $('#phone').blur(function(){
@@ -206,6 +207,7 @@ function reset_otp_form(){
     //$('#otp_error_msg').parent().removeClass('has-error');
     $('#mobile_no_error_msg').html('');
     //$('#mobile_no_error_msg').parent().removeClass('has-error');*/
+
 }
 function encode_string($srting){
     return SHA256($srting);

@@ -10,10 +10,13 @@ class otp extends CI_Controller {
 
     	parent::__construct();
     	$this->load->helper('otp_helper');
+    	if(!isset($_SESSION)) session_start();
 	}
 	public function index()
 	{
+	   // print_r($_SESSION); die;
 		$post_data = json_decode(file_get_contents('php://input') );
+		//print_r($post_data);die;
 		$param = $post_data->param;		
 		switch ($param) {
  		   	case "registration":
@@ -31,33 +34,30 @@ class otp extends CI_Controller {
 		
 	}
 	public function registration($post_data){
-		$mobileno = $post_data->mobileno;
+		$mobileno   = $post_data->mobileno;
+		$name       = ucwords($post_data->name);
 		if(!preg_match('/^[0]?[6789]\d{9}$/',$mobileno)) // phone number is valid
     	{
 			$responce_array = array('status' => '0' , 'message'=>'phone number is not valid');
 			echo json_encode($responce_array);die;
 
 	    }else {
-      		$result = sendOtp($mobileno);
-      		$responce_array = array('status' => '1' , 'result'=>$result);
+      		$result = sendOtp($mobileno,$name);
+      		$responce_array = array('status' => '1' , 'message'=>'OTP is send to your mobile no.');
 			echo json_encode($responce_array);
 		}
 	}
 	public function checkOtp($post_data){
-
 		if(!preg_match('/^[0]?[6789]\d{9}$/',$post_data->mobileno)) // phone number is valid
     	{
 			$responce_array = array('status' => '0' , 'message'=>'phone number is not valid');
 			echo json_encode($responce_array);die;
-
 	    }else {
-			$mobileno	= $post_data->mobileno;
+	    	$mobileno	= $post_data->mobileno;
 			$otp 		= $post_data->otp;
 			$count_type = $post_data->count_type;
-			$tran_id 	= $_SESSION['__ci_last_regenerate'];
-			
+			$tran_id 	= (!empty($_SESSION['__ci_last_regenerate'])) ? $_SESSION['__ci_last_regenerate'] : '';
 			$responce_array = checkOtp($mobileno, $otp, $count_type,$tran_id);
-
 			echo json_encode($responce_array);
 		}
 	}
@@ -67,8 +67,8 @@ class otp extends CI_Controller {
 		// Call send sms api
 		$sender_id	= 'HAULAG';
 		$authKey	= '245126AW8IgiJPJYo5cad8a48';
-		$mobileno	= $post_data->mobile_no;
-		$message 	= "Thankyou you have successfully booked HAULAG services."; 
+		$mobileno	= $post_data->mobileno;
+		$message 	= "Dear ".ucwords($post_data->name).", We Received Your Booking request. Haulage Executive will contact you shortly. Thank you for choosing Haulage. For any Enquiry, Please contact: 0731-4773333"; 
 
 		$result = $this->common_methods->otp_send_by_msg91($sender_id, $authKey, $mobileno, $message);
 		if($result)
@@ -76,7 +76,6 @@ class otp extends CI_Controller {
 		else
 			echo json_encode(array('status'=>0, 'message'=>'error'));
 	}
-	
 
 
 	/*

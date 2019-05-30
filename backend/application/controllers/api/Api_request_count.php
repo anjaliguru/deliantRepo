@@ -29,9 +29,22 @@ class Api_request_count extends CI_Controller {
 		$insertArray['pg_nm'] 		= $post_data->pg_nm;
 		$insertArray['hit_time'] 	= $post_data->hit_time;
 		$insertArray['ip_address'] 	= $post_data->ip_address;
-		$insertArray['location'] 	= $post_data->location;
+		//$insertArray['location'] 	= $post_data->location;
+		$insertArray['latitude'] 	= $post_data->latitude;
+		$insertArray['longitude'] 	= $post_data->longitude;
+		$insertArray['accuracy'] 	= $post_data->accuracy;
+		$insertArray['county'] 	    = $post_data->county;
+		$insertArray['region'] 	    = $post_data->region;
 		//print_r($insertArray); die;
-		$this->Common_methods->insertData('page_hit', $insertArray);
+		
+		$resutl = $this->Common_methods->insertData('page_hit', $insertArray);
+		if($resutl){
+		    $responce_array = array('status' => '1' , 'message'=>'Data inserted');
+			echo json_encode($responce_array);die;
+		}else{
+		    $responce_array = array('status' => '0' , 'message'=>'error');
+			echo json_encode($responce_array);die;
+		}
 	}
 
 	

@@ -57,6 +57,16 @@
 			return false;
 	}
 </script>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#notifyModal").modal({
+        show: false,
+        backdrop: 'static'
+        
+    });
+    
+ });
+</script>
 </head>
 <body onload="hideTotal()">
 	<div id="preloader">
@@ -295,7 +305,7 @@
 											style="text-align: center;">Name</label>
 										<div class="col-md-9">
 											<input type="text"
-												style="border-style: solid; border-width: thin;"
+												style="border-style: solid; border-width: thin;" pattern="[a-zA-Z ]+$"
 												class="form-control" required name="userName" id="userName" />
 										</div>
 									</div>
@@ -307,7 +317,7 @@
 											style="text-align: center;">Email </label>
 										<div class="col-md-9">
 											<input type="text"
-												style="border-style: solid; border-width: thin;"
+												style="border-style: solid; border-width: thin;"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
 												class="form-control" required name="userEmail"
 												id="userEmail" />
 										</div>
@@ -318,7 +328,7 @@
 										<div class="col-md-9">
 											<input type="text"
 												style="border-style: solid; border-width: thin;"
-												class="form-control" name="telephone" required
+												class="form-control" name="telephone" pattern="[6-9]{1}[0-9]{9}"  required
 												id="telephone" onkeypress='return restrictAlphabets(event)'
 												maxlength="10" />
 										</div>
@@ -342,7 +352,7 @@
 												name="message" id="message" required rows="10"
 												data-bv-stringlength data-bv-stringlength-max="100"
 												data-bv-stringlength-message="The bio must be less than 100 characters long"
-												required></textarea>
+												></textarea>
 										</div>
 									</div>
 
@@ -374,7 +384,7 @@
 										<div class="modal-body">
 											<div id="ajax-loader">
 												<h3>Please wait...</h3>
-												<div class="loader" id="loader"></div>
+												<img data-src="image/loading-image-1.gif" alt="loading image" class="lazyload"/>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-danger"
 														data-dismiss="modal">Close</button>
