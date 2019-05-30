@@ -166,8 +166,10 @@ class otp extends CI_Controller {
 	}
 
 	public function test(){
-		$this->load->helper('common_helper');
-		logger('info', 'test message');
-		
+		phpInfo();die;
+		echo "GetIPAddressInNumbers(number_of_decimal)";
+		// with will return ip address without : sign.
+		$this->load->helper('system_unique_key');
+		GetIPAddressInNumbers(10);
 	}
 }
