@@ -28,6 +28,9 @@ class otp extends CI_Controller {
         	case "sendWelcomeMessage":
         		$this->sendWelcomeMessage($post_data);
         		break;	
+        	case "test"	:
+        		$this->test($post_data);
+        		break;	
     		default:
         		echo "Your favorite color is neither red, blue, nor green!";
 		}
@@ -75,6 +78,22 @@ class otp extends CI_Controller {
 			echo json_encode(array('status'=>1, 'message'=>'success'));
 		else
 			echo json_encode(array('status'=>0, 'message'=>'error'));
+	}
+	public function test($post_data){
+
+		$system_trans_key = getSystemUniqueKey($this->config->item('system_unique_key_length'));
+
+ 		// Insert OTP information in database
+        $otp_array['mobile_no'] = '9874563210';
+        $otp_array['tran_id']   = '11111111';
+        $otp_array['exp_time']  = time();
+        $otp_array['otp']       = '1234';
+        //$otp_array['system_trans_key'] = $system_trans_key;
+
+        log_info('otp', 'api/otp', 'test', $system_trans_key, 'data insert in otp');
+
+        $this->common_methods->insertData('otp', $otp_array);
+        log_info('otp', 'api/otp', 'test', $system_trans_key, $this->db->last_query());
 	}
 
 

@@ -1,45 +1,83 @@
-
-function sendcalCulationForm() {
-
-     var name= $("#name").val();
-	 var mobile= $("#phone").val();
-	  var drop= $("#drop").val();
-	   var pickup= $("#pickup").val();
-	console.log("name "+name);
-	console.log("telephone "+mobile);
-if(name=='' && mobile==''){
-	return;
-}
-		$('#notifyModal').modal('show');
-		jQuery.ajax({
-		url: "calculation-form.php",
-		//data:'userName='+$("#userName").val()+'&userEmail='+$("#userEmail").val() +'&telephone='+$("#telephone").val()+'&subject='+$("#subject").val()+'&message='+$("#message").val(), 
-		data:'requestName='+$("#name").val()+'<br>'+'&requestPhone='+$("#phone").val()+'<br>'+'&requestPickUp='+pickup+'<br>'+'&requestDrop='+drop+'<br>'+'&requestTime='+$("#bookingtime").val()+'<br>' +'&subject='+'Notification for Booking'+'&destination='+'pixl.akshay@gmail.com',
-		type: "POST",
-			success:function(data){
-		 alert(data);
-			$( '#defaultForm' ).each(function(){
-				resetForm($('#defaultForm'));
-				
-});
-		document.getElementById('ajax-loader').style.display='none';
-		document.getElementById('booking_success').style.display='block'; 
-		},
-		error:function (){
-			$( '#defaultForm' ).each(function(){
-				resetForm($('#defaultForm'));
-				
-});			
-		document.getElementById('ajax-loader').style.display='none';
-		document.getElementById('booking_success').style.display='block';
+function sendContact() {
+	var isvalid = $('#defaultForm1').bootstrapValidator('validate');
+	var shallReturn = false;
+	for (i = 0; i < isvalid[0].length; i++) {
+		if (!isvalid[0][i].validity.valid) {
+			console.log(isvalid[0][i].name + ' is not valid');
+			shallReturn = true;
 		}
-		});
+	}
+	if (shallReturn) {
+		return false;
+	}
+	$('#ajax-loader').show();
+	$('#booking_success').hide();
+	$('#notifyModal').modal('show');
+	/*jQuery.ajax({
+		url : "sendEmail.php",
+		data : 'requestMessage=Name:' + $("#userName").val() + '<br>'
+				+ '<br>Email:' + $("#userEmail").val() + '<br>'
+				+ '<br>mobile no:' + $("#telephone").val() + '<br>'
+				+ '<br>Subject:' + $("#subject").val() + '<br>'
+				+ '<br>Message:' + $("#message").val() + '<br>' + '&subject='
+				+ 'Notification for Contact Form' + '&destination='
+				+ 'pixl.akshay@gmail.com',
+		type : "POST",
+		success : function(data) {
+			console.log(data);
+			$('#defaultForm1').each(function() {
+				resetForm($('#defaultForm1'));
+			});
+		    setTimeout(function(){
+                $('#ajax-loader').hide();
+                $('#booking_success').show();
+            }, 3000);
+		},
+		error : function(data) {
+			$('#defaultForm1').each(function() {
+				resetForm($('#defaultForm1'));
+			});
+			setTimeout(function(){
+                $('#ajax-loader').hide();
+            }, 3000);
+			setTimeout(function(){
+	            $('#booking_success').show();
+            }, 3000);
+		}
+	});*/
+	var requestMessage = 'Name:' + $("#userName").val() + '<br>'
+				+ '<br>Email:' + $("#userEmail").val() + '<br>'
+				+ '<br>mobile no:' + $("#telephone").val() + '<br>'
+				+ '<br>Subject:' + $("#subject").val() + '<br>'
+				+ '<br>Message:' + $("#message").val() + '<br>';
+	var subject = 'Notification for Contact Form';
+	var destination = 'pixl.akshay@gmail.com';
 	
-
-
+	jQuery.ajax({
+		url: base_url_api+'api/sendMail/',
+		data : {"param":"sendMail", "requestMessage":requestMessage,"subject":subject,"destination":destination},
+		//dataType: "json",
+		type : "POST",
+		success : function(data) {
+			console.log(data);
+			$('#defaultForm1').each(function() {
+				resetForm($('#defaultForm1'));
+			});
+		    setTimeout(function(){
+                $('#ajax-loader').hide();
+                $('#booking_success').show();
+            }, 3000);
+		},
+		error : function(data) {
+			$('#defaultForm1').each(function() {
+				resetForm($('#defaultForm1'));
+			});
+			setTimeout(function(){
+                $('#ajax-loader').hide();
+            }, 3000);
+			setTimeout(function(){
+	            $('#booking_success').show();
+            }, 3000);
+		}
+	});
 }
-function resetForm($form) {
-			
-            $('#defaultForm').bootstrapValidator('resetForm', true);
-
-        }

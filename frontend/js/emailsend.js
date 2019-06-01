@@ -7,7 +7,7 @@ function sendContact() {
 	console.log("email  "+emailText);
 	
 if(emailText=='' ){
-		//alert(content);
+	//alert(content);
 	document.getElementById('emailMsg').innerHTML="All Fields Required !";
 	return;
 }else{
@@ -36,11 +36,18 @@ if(content== 'null'){
 	
 	$('#ajax-loader1').show();
 	$('#booking_success1').hide();
-$('#notifyModal').modal('show');
-      		jQuery.ajax({
-		url: "sendEmail.php",
-		
-		data:'requestMessage=UserEmail:'+$("#userEmail").val()+'<br>Service:'+servicetype1.value+'<br>' +'&subject='+'Notification for Request a Quote'+'&destination='+'pixl.akshay@gmail.com',
+    $('#notifyModal').modal('show');
+    
+    var requestMessage = 'UserEmail:'+$("#userEmail").val()+'<br>Service:'+servicetype1.value+'<br>';
+	var subject = 'Notification for Request a Quote';
+	var destination = 'pixl.akshay@gmail.com';
+	
+	
+    jQuery.ajax({
+		//url: "sendEmail.php",
+		//data:'requestMessage=UserEmail:'+$("#userEmail").val()+'<br>Service:'+servicetype1.value+'<br>' +'&subject='+'Notification for Request a Quote'+'&destination='+'pixl.akshay@gmail.com',
+		url: base_url_api+'api/sendMail/',
+        data : {"param":"sendMail", "requestMessage":requestMessage,"subject":subject,"destination":destination},
 		type: "POST",
 		success:function(data){
 			console.log(data);

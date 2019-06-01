@@ -37,9 +37,12 @@
         ============================================= -->
 <script type="text/javascript" src="js/jquery.min.js"></script>
 
+
 <!-- script to disable characters in text box -->
 <script>
     var base_url_api = 'http://haulagelogistics.co.in/otp/';
+    //var mailSendTo = 'pixl.akshay@gmail.com';
+    //var mailSendTo = 'anjalibajpai025@gmail.com';
 	function restrictAlphabets(e) {
 		var x = e.which || e.keycode;
 		if ((x >= 48 && x <= 57) || x == 8 || (x >= 35 && x <= 40) || x == 46)
@@ -68,6 +71,16 @@ function clickHandler(){
 			} catch (err) {
 			}
 		}
+	});
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#notifyModal").modal({
+			show : false,
+			backdrop : 'static'
+
+		});
+
 	});
 </script>
 <!-- Google maps API -->
